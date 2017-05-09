@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DBA>
+	<user>user1</user>
+	<password>sib1962</password>
+	<schema>sibtransexpenses</schema>
+	<host>133.242.134.145</host>
+	<hostname>sib.co.jp</hostname>
+	<ReportPath>/bin/sib/tejob/report</ReportPath>
+	<ReportFile>teReposrt.jasper</ReportFile>
+	<OutPath>/bin/sib/tejob/pdf</OutPath>
+	<tmpPath>/bin/sib/tejob/tmp</tmpPath>
+	<osSeparator>/</osSeparator>
+	<csvFile>tmpCSV.csv</csvFile>
+	<sendName>藤本</sendName>
+	<sendMailAddress>taku_fujimoto@sib.co.jp</sendMailAddress>
+	<csvHead>empname,section,empmonth,appday,summary,sectionFrom,sectionTo,Money,expDate,totalMoney</csvHead>
+	<port>587</port>
+	<sendid>sysbot@sib.co.jp</sendid>
+	<sendpas>sysbot1962</sendpas>
+	<errhostname>sib.co.jp</errhostname>
+	<errport>587</errport>
+	<errsendid>sysbot@sib.co.jp</errsendid>
+	<errsendpas>sysbot1962</errsendpas>
+	<errfromaddress>sysbot@sib.co.jp</errfromaddress>
+	<errtoaddress>taku_fujimoto@sib.co.jp</errtoaddress>
+	<errstitel>SIB自動メール送信システム</errstitel>
+</DBA>
