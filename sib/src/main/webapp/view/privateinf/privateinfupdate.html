@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-社員個人情報　『更新』</title>
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+    
+    <script type="text/javascript">
+      
+      function chengeUpdChk(){
+        
+        if( confirm("個人情報を入力内容で更新します。\nよろしいですか？")){
+   
+			document.getElementById("doFinishUpdate").click();
+
+        }else{
+          return false;
+          
+        }
+        
+      }  
+    </script>
+     
+    <link rel="stylesheet" href="../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../css/commoninput.css" />
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+    <form id="employeeDeleteForm">
+       <center>
+         <div id="contents">
+           <div id="c_pad">
+           
+                       <h4>ログイン社員情報</h4>
+             <table border="0" width="800px" >
+               <tbody>
+                 <tr>
+                   <td>
+                     <img src="../img/p3.png" alt="logo" ></img>
+                   </td>
+                   <td>
+                     
+                 <table class="companyinflist" style="width=500px;" align="left">
+                   <tr>
+                     <th>社員コード</th>
+                     <td align="left"><span id="employee_id"></span></td>
+                   </tr>
+                   <tr>
+                     <th>社員名</th>
+                     <td align="left"><span id="employee_name"></span></td>
+                   </tr>
+                   <tr>
+                     <th>メールアドレス</th>
+                     <td align="left"><span id="employee_mail"></span></td>
+                   </tr>
+                 </table>
+                   
+                   </td>
+                 </tr>
+               </tbody>
+             </table>
+           
+             <h2 style="width:740px;">社員情報編集</h2>         
+                <br/>
+                <div id="cal">
+          
+                  <table class="companyinflist" style="width=770px;">
+                    <tr>
+                      <th align="left">社員名</th>
+                      <td align="left">
+                        <input class="Text" type="text" id="EmployeenameStr" style="width:150px;" maxlength="10" title="社員名" />
+                        <br/><span id="EmployeenameStrMessage"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">社員名（カナ）</th>
+                      <td align="left">
+                        <input class="Text" type="text" id="EmployeenamekanaStr" style="width:150px;" maxlength="20" title="社員名（カナ）" />
+                        <br/><span id="EmployeenamekanaStrMessage"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">ログインID</th>
+                      <td align="left">
+                        <input class="Text" type="text" id="EmployeeloginidStr" style="width:200px;" maxlength="20" title="ログインID" />
+                        <br/><span id="EmployeeloginidStrMessage"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">メールアドレス</th>
+                      <td align="left">
+                        <input class="Text" type="text" id="EmployeeemailStr" style="width:250px;" maxlength="32" title="メールアドレス" />
+                        <br/><span id="EmployeeemailStrMessage"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">郵便番号</th>
+                      <td align="left">
+                        <input class="Text" type="text" id="EmployeepostcodeStr" style="width:60px;" maxlength="8" title="郵便番号" />
+                        <br/><span id="EmployeepostcodeStrMessage"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">住所</th>
+                      <td align="left">
+                        <input class="Text" type="text" id="Employeeaddress1Str" style="width:350px;" maxlength="60" title="住所" />
+                        <br/><span id="Employeeaddress1StrMessage"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">建物</th>
+                      <td align="left">
+                        <input class="Text" type="text" id="Employeeaddress2Str" style="width:250px;" maxlength="30" title="建物名" />
+                        <br/><span id="Employeeaddress2StrMessage"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">電話番号（自宅）</th>
+                      <td align="left">
+                        <input class="Text" type="text" id="EmployeetelStr" style="width:120px;" maxlength="20" title="電話番号（自宅）" />
+                        <br/><span id="EmployeetelStrMessage"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">電話番号（携帯）</th>
+                      <td align="left">
+                        <input class="Text" type="text" id="EmployeemphoneStr" style="width:120px;" maxlength="20" title="電話番号（携帯）" />
+                        <br/><span id="EmployeemphoneStrMessage"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">電話番号（FAX）</th>
+                      <td align="left">
+                        <input class="Text" type="text" id="EmployeefaxStr" style="width:120px;" maxlength="20" title="電話番号（FAX)" />
+                        <br/><span id="EmployeefaxStrMessage"></span>
+                      </td>
+                    </tr> 
+                  </table>
+                </div>
+                <br/>
+                     </div>
+         </div>
+       </center>
+                <br/>
+                <br/>
+                  <img onclick="chengeUpdChk()" src="../img/btnupd.png" style="width:40px;height:21px;" alt="更新" ></img>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input type="image" id="doFinishReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+
+            <!-- 隠し項目 -->
+      <input type="button" id="doFinishUpdate" style="display:none;"/>
+    </form>
+  </body>
+</html>

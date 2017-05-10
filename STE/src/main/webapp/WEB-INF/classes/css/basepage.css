@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+.headerstyle {
+	height : 80px;
+	background-image : url(/STE/view/img/bg.png);
+	background-repeat: repeat-x;
+}
+
+.articlestyle {
+	padding : 0px 5px 0px 5px;
+	margin : 10px 0px 10px 0px;
+}
+
+.footstyle1 {
+	background-color : #F5F4F0;
+	text-align : left;
+	padding : 8px;
+	font-size : 10px;
+}
+
+.footstyle2 {
+	background-color : #8C8A84;
+	color : #FFFFFF;
+	text-align : right;
+	padding-top : 5px;
+	padding-right : 3px;
+	height : 20px;
+	font-size : 9px;
+}
+
+H4 {
+	font-size: 16px;
+	padding-left: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	color: #3F3F3F;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	margin-right: 10px;
+	margin-left: 5px;
+	font-weight: bold;
+	background-image : url(/STE/view/img/h4img.png);
+	border-left-width: 7px;
+	border-left-style: solid;
+	border-left-color : #e68e24;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #EAEAEA;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #e68e24;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #EAEAEA;
+}
+
+input.InputButton {
+	width : 100px;
+	height : 40px;
+}
+
+input.InputButton2 {
+	width : 80px;
+	height : 40px;
+}
+
+select.comList {
+	width : 80px;
+	height :40px;
+}
+
+/* */
+div.HdrDiv01 {
+	width : 350px;
+}
+
+/* */
+div.FtrDiv01 {
+	overflow-y:scroll;
+	width : 370px;
+	height: 200px;
+}
+
+/* */
+table.HdrTbl01 {
+	table-layout: fixed;
+}
+
+table.HdrTbl01 tr {
+	height : 40px;
+	background-color : #FCEAB0;
+}
+
+table.HdrTbl01 th {
+	border: solid 1px #000000;
+}
+
+/* */
+table.FtrTbl01 {
+	table-layout: fixed;
+}

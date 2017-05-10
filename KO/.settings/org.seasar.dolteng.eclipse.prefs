@@ -1,0 +1,7 @@
+DaoType=S2Dao
+DefaultResourcePath=/KO/src/main/resources
+DefaultRootPackage=koroot
+DefaultSrcPath=/KO/src/main/java
+ServletPath=/KO
+WebContentsRoot=src/main/webapp/
+eclipse.preferences.version=1

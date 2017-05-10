@@ -1,0 +1,78 @@
+/* 土曜日用td */
+td.Td01{
+	height:100px;
+	width:200px;
+	background-color:#E9E9FF;
+}
+/* 日曜日用td */
+td.Td02{
+	height:100px;
+	width:200px;
+	background-color:#FFE0E0;
+}
+/* 平日用td */
+td.Td03{
+	height:100px;
+	width:200px;
+}
+/* thと同じスタイル */
+td.Td04{
+	color:#330000;
+ 	background-color:#FCEAB0;
+ 	background-position:left top;
+ 	padding:0.3em 1em;
+ 	text-align : left;
+ 	vertical-align : top;
+ 	border-right-width : 3px;
+ 	border-bottom-width : 3px;
+ 	border-right-style : solid;
+ 	border-bottom-style : solid;
+ 	border-right-color : #ffffff;
+ 	border-bottom-color : #ffffff;
+ 	width : 150px;
+}
+/* 当月以外の日用 */
+td.Td05{
+	height:100px;
+	width:200px;
+	background-color:#E0E0E0;
+}
+/* 隠しセル用 */
+td.Td06{
+ 	background-position:0;
+ 	padding:0;
+ 	border-right-width : 0;
+ 	border-bottom-width : 0;
+ 	width : 0;
+}
+/* 土曜日の文字の色 */
+span.Span01{
+	color:blue;
+}
+/* 日曜日の文字の色 */
+span.Span02{
+	color:red;
+}
+/* スクロール固定部用テーブル */
+TABLE.companyinflist2{
+  border-collapse:collapse;
+  border-spacing:0;
+  background-color:#ffffff;
+  empty-cells:show;
+}
+/* スクロール固定部用th */
+.companyinflist2 TH{
+  color:#330000;
+  background-color:#FCEAB0;
+  background-position:left top;
+  padding:0.3em 1em;
+  text-align : left;
+  vertical-align : top;
+  border-right-width : 3px;
+  border-bottom-width : 3px;
+  border-right-style : solid;
+  border-bottom-style : solid;
+  border-right-color : #ffffff;
+  border-bottom-color : #ffffff;
+  width : 150px;
+}

@@ -1,0 +1,7 @@
+DaoType=S2Dao
+DefaultResourcePath=/sib/src/main/resources
+DefaultRootPackage=schedule
+DefaultSrcPath=/sib/src/main/java
+ServletPath=/sib
+WebContentsRoot=src/main/webapp/
+eclipse.preferences.version=1

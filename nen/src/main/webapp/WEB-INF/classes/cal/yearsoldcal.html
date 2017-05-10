@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:te="http://www.seasar.org/teeda/extension" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>あなたの年齢計算</title>
+</head>
+<body>
+<form id="Form">
+	<br/>
+	あなたの生年月日を教えてください。<br/>
+	<input type="hidden" id="yearsItemsSave" />
+	<select id="years" style="width:80px;">
+		<option value="0">dummy</option>
+	</select>
+	年
+	<input type="hidden" id="monthItemsSave" />
+	<select id="month" style="width:50px;">
+		<option value="0">dummy</option>
+	</select>
+	月
+	<input type="hidden" id="daysItemsSave" />
+	<select id="days" style="width:50px;">
+		<option value="0">dummy</option>
+	</select>
+	日
+	<br/>
+	<br/>
+	成長を止めたい年齢を教えてください。<br/>
+	<input type="hidden" id="hopeyearsItemsSave" />
+	<select id="hopeyears" style="width:80px;">
+		<option value="0">dummy</option>
+	</select>
+	<br/>
+	<br/>
+	<span id="UpdMes" te:escape="false"></span>
+	<br/>
+	<input type="button" value="計算" id="doCal"  />
+
+
+
+</form>
+</body></html>

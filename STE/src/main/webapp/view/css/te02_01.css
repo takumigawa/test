@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+input.InputText {
+	width : 150px;
+}
+input.SendButton {
+	width : 35px;
+}
+
+table.FtrTbl01 tr {
+	height : 40px;
+}
+
+table.FtrTbl01 tr.FtrTbl01white {
+
+}
+
+table.FtrTbl01 tr.FtrTbl01gray {
+	background-color : #EEEEEE;
+}
+
+
+table.FtrTbl01 td {
+	border : 1px solid #888888;
+}
+
+/* 年月 */
+table.HdrTbl01 th.th01 {
+	width : 80px;
+}
+table.FtrTbl01 td.td01 {
+	width : 80px;
+	text-align : right;
+}
+
+/* 状況 */
+table.HdrTbl01 th.th02 {
+	width : 60px;
+}
+table.FtrTbl01 td.td02 {
+	width : 60px;
+	text-align : center;
+}
+/* 状況 */
+table.HdrTbl01 th.th03 {
+	width : 60px;
+}
+table.FtrTbl01 td.td03 {
+	width : 60px;
+	text-align : center;
+}
+
+/* 金額 */
+table.HdrTbl01 th.th04 {
+	width : 80px;
+}
+table.FtrTbl01 td.td04 {
+	width : 80px;
+	text-align : right;
+}
+
+/* チェック */
+table.HdrTbl01 th.th05 {
+	width : 40px;
+}
+table.FtrTbl01 td.td05 {
+	width : 40px;
+	text-align : center;
+}
+
+/* チェック */
+table.HdrTbl01 th.th06 {
+	width : 30px;
+}
+table.FtrTbl01 td.td06 {
+	width : 30px;
+	text-align : center;
+}
+
+div.HdrDiv01Add {
+	margin : 5px 0px 5px 0px;
+}

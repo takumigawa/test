@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-案件情報　『詳細』</title>
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+    
+    <script type="text/javascript">
+
+      function chengeInsChk(){
+        
+        if( confirm("入力された内容で登録します。\nよろしいですか？")){
+   
+            document.getElementById("doFinishUpdate").click();
+ 
+        }else{
+          return false;
+          
+        }
+        
+      } 
+      
+      function chengeUpdChk(){
+        
+        if( confirm("入力された内容で更新します。\nよろしいですか？")){
+   
+            document.getElementById("doFinishUpdate").click();
+ 
+        }else{
+          return false;
+          
+        }
+        
+      }  
+    </script>
+      
+    <link rel="stylesheet" href="../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../css/commoninput.css" />
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+    <form id="employeeinputForm">
+      <center>
+        <div id="contents">
+          <div id="c_pad">
+            <h4 style="width:740px;">案件情報詳細</h4>
+            <br/>  
+            <div id="cal">
+              <table class="companyinflist" style="width=770px;">
+                <tr>
+                  <th align="left">社員名</th>
+                  <td align="left">
+                    <input type="hidden" id="employeeIDItemsSave" />
+			        <select id="employeeID" style="width:120px;">
+			          <option value="0">dummy</option>
+			        </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">案件タイトル</th>
+                  <td align="left">
+                    <input class="Text" id="MatterTitleStr" style="width:250px;" maxlength="25" title="案件タイトル" />
+                    <br/><span id= "MatterTitleStrMessage"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">
+                    <table>
+                      <tr>
+                        <th style="border-style:none;">商流</th>
+                        <th style="border-style:none;">
+                          <table>
+                            <tr>
+                              <th style="border-style:none;height:25px;">EndUser</th>
+                            </tr>
+                            <tr>
+                              <th style="border-style:none;height:25px;">第一</th>
+                            </tr>
+                            <tr>
+                              <th style="border-style:none;height:25px;">第二</th>
+                            </tr>
+                            <tr>
+                              <th style="border-style:none;height:25px;">第三</th>
+                            </tr>
+                            <tr>
+                              <th style="border-style:none;height:25px;">第四</th>
+                            </tr>
+                            <tr>
+                              <th style="border-style:none;height:25px;">第五</th>
+                            </tr>
+                            <tr>
+                              <th style="border-style:none;height:25px;">第六</th>
+                            </tr>
+                            <tr>
+                              <th style="border-style:none;height:25px;">第七</th>
+                            </tr>
+                            <tr>
+                              <th style="border-style:none;height:25px;">第八</th>
+                            </tr>
+                            <tr>
+                              <th style="border-style:none;height:25px;">第九</th>
+                            </tr>
+                            <tr>
+                              <th style="border-style:none;height:25px;">第十</th>
+                            </tr>
+                          </table>
+                        </th>
+                      </tr>
+                    </table>
+                  </th>
+                  <td align="left">
+                          <table>
+                            <tr>
+                              <td style="border-style:none;height:25px;">
+                    <input type="hidden" id="no1cusItemsSave" />
+			        <select id="no1cus" style="width:250px;">
+			          <option value="0">dummy</option>
+			        </select>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="border-style:none;height:25px;">
+                                                  <input type="hidden" id="no2cusItemsSave" />
+			        <select id="no2cus" style="width:250px;">
+			          <option value="0">dummy</option>
+			        </select>
+			        </td>
+                            </tr>
+                            <tr>
+                              <td style="border-style:none;height:25px;">
+                                                  <input type="hidden" id="no3cusItemsSave" />
+			        <select id="no3cus" style="width:250px;">
+			          <option value="0">dummy</option>
+			        </select>
+			        </td>
+                            </tr>
+                            <tr>
+                              <td style="border-style:none;height:25px;">
+                                                  <input type="hidden" id="no4cusItemsSave" />
+			        <select id="no4cus" style="width:250px;">
+			          <option value="0">dummy</option>
+			        </select>
+			        </td>
+                            </tr>
+                            <tr>
+                              <td style="border-style:none;height:25px;">
+                                                  <input type="hidden" id="no5cusItemsSave" />
+			        <select id="no5cus" style="width:250px;">
+			          <option value="0">dummy</option>
+			        </select>
+			        </td>
+                            </tr>
+                            <tr>
+                              <td style="border-style:none;height:25px;">
+                                                  <input type="hidden" id="no6cusItemsSave" />
+			        <select id="no6cus" style="width:250px;">
+			          <option value="0">dummy</option>
+			        </select>
+			        </td>
+                            </tr>
+                            <tr>
+                              <td style="border-style:none;height:25px;">
+                                                  <input type="hidden" id="no7cusItemsSave" />
+			        <select id="no7cus" style="width:250px;">
+			          <option value="0">dummy</option>
+			        </select>
+			        </td>
+                            </tr>
+                            <tr>
+                              <td style="border-style:none;height:25px;">
+                                                 <input type="hidden" id="no8cusItemsSave" />
+			        <select id="no8cus" style="width:250px;">
+			          <option value="0">dummy</option>
+			        </select>
+			        </td>
+                            </tr>
+                            <tr>
+                              <td style="border-style:none;height:25px;">
+                                                  <input type="hidden" id="no9cusItemsSave" />
+			        <select id="no9cus" style="width:250px;">
+			          <option value="0">dummy</option>
+			        </select>
+			        </td>
+                            </tr>
+                            <tr>
+                              <td style="border-style:none;height:25px;">
+                                                  <input type="hidden" id="no10cusItemsSave" />
+			        <select id="no10cus" style="width:250px;">
+			          <option value="0">dummy</option>
+			        </select>
+			        </td>
+                            </tr>
+                            <tr>
+                              <td style="border-style:none;height:25px;">
+                                                  <input type="hidden" id="no11cusItemsSave" />
+			        <select id="no11cus" style="width:250px;">
+			          <option value="0">dummy</option>
+			        </select>
+			        </td>
+                            </tr>
+                          </table>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">案件場所</th>
+                  <td align="left">
+                    <input class="Text" id="MatteraddressStr" style="width:250px;" maxlength="60" />
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">
+                    <table>
+                      <tr>
+                        <th>期間</th>
+                        <th>
+                          <table>
+                            <tr>
+                              <th style="border-style:none;height:25px;">開始</th>
+                            </tr>
+                            <tr>
+                              <th style="border-style:none;height:25px;">終了</th>
+                            </tr>
+                          </table>
+                        </th>
+                      </tr>
+                    </table>
+                  </th>
+                  <td align="left">
+                    <table>
+                      <tr>
+                        <td style="border-style:none;height:25px;">
+                          <input class="Text" id="MatterStartStr" style="width:250px;" maxlength="25" />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="border-style:none;height:25px;">
+                          <input class="Text" id="MatterEndStr" style="width:250px;" maxlength="25" />
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">案件内容</th>
+                  <td align="left">
+                    <textarea id="MatternoteStr" rows="10" style="width:400px;" maxlength="120" ></textarea>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <br/>
+          </div>
+        </div>
+      </center>
+      <br/>
+      <br/>
+
+      <div id="isUpdate">
+        <img onclick="chengeUpdChk()" src="../img/btnupd.png" style="width:40px;height:21px;" alt="更新" ></img>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="image" id="doFinishReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+      </div>
+      <div id="isNotUpdate">
+        <img onclick="chengeInsChk()" src="../img/btnadd.png" style="width:40px;height:21px;" alt="追加" ></img>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="image" id="doFinishReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+      </div>
+      <!-- 隠し項目 -->
+      <input type="button" id="doFinishUpdate" style="display:none;"/>
+
+    </form>
+  </body>
+</html>

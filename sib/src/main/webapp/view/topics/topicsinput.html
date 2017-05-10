@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:x="http://myfaces.apache.org/tomahawk">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-トピックス　『登録』</title>
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+    <script type="text/javascript" src="../js/CommonClientCheck.js" ></script>
+    <script type="text/javascript" src="../js/calendar.js" ></script>
+    <script type="text/javascript" src="topicsChk.js" ></script>
+    <script type="text/javascript">
+      
+      cal1 = new JKL.Calendar("caldiv1","topicsInputForm","startDateStr");
+      cal2 = new JKL.Calendar("caldiv2","topicsInputForm","endDateStr");
+      window.document.onclick=calClick;
+      
+      function calClick(e){
+        var o=e?e.target:event.srcElement;  
+        if(o.id.indexOf("caldiv1",0) == -1) {
+          if(o.id != "startDateStr") {
+            cal1.initDate();
+            cal1.hide();
+          }
+        }
+        if(o.id.indexOf("caldiv2",0) == -1) {
+          if(o.id != "endDateStr") {
+            cal2.initDate();
+            cal2.hide();
+          }
+        }
+      }
+      
+      function changeInsChk(){
+        if(!chkInput()){
+			document.getElementById("doConfirm").click();
+		}
+      } 
+      
+      function changeUpdChk(){
+        if(!chkInput()){
+			document.getElementById("doConfirm").click();
+		}
+      }
+    </script>
+       
+    <link rel="stylesheet" href="../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../css/commoninput.css" />
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+  
+  </head>
+  
+  <body>
+    <center>
+      <form id="topicsInputForm" enctype="multipart/form-data">
+        <div id="contents">
+          <div id="c_pad">
+            <h4>トピックス登録</h4>
+          </div>
+        </div>
+
+        <!-- スクロールバー(開始) -->
+        <div id="cal">
+          <table class="companyinflist" style="width=550px;">
+            <tbody>
+              <tr>
+                <th align="left" style="width:150px;">掲載開始日</th>
+                <td align="left" style="width:400px;">
+                  <input class="Text" id="startDateStr" style="width:100px;" maxlength="10" onClick="cal2.hide(); cal1.write();" onChange="cal1.getFormValue(); cal1.hide();"  />
+                  <span id="caldiv1"></span>
+                </td>
+              </tr>
+              <tr>
+                <th align="left" style="width:150px;">掲載終了日</th>
+                <td align="left" style="width:400px;">
+                  <input class="Text" id="endDateStr" style="width:100px;" maxlength="10" onClick="cal1.hide(); cal2.write();" onChange="cal2.getFormValue(); cal2.hide();" />
+                  <span id="caldiv2"></span>
+                </td>
+              </tr>
+              <tr>
+                <th align="left" style="width:150px;">内容</th>
+                <td align="left" style="width:400px;">
+                  <textarea id="noteStr" rows="10" style="width:300px;"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <th align="left" style="width:150px;">優先順位</th>
+                <td align="left" style="width:400px;">
+                  <input type="hidden" id="priorityStrItemsSave" />
+				  <select id="priorityStr" style="width:50px;">
+                    <option value="0">dummy</option>
+				  </select>
+				  &nbsp;&nbsp;※&nbsp;0:低&nbsp;～&nbsp;5：高
+                </td>
+              </tr>
+              <tr>
+                <th align="left" style="width:150px;">添付ファイル</th>
+                <td align="left" style="width:400px;word-break:break-all;">
+                  <div id="fileListItems">
+                    <span id="isFile">
+                      <input type="text" id="fileName" style="width:199px;heigth:20px;" readonly="readonly" />
+                      <input type="button" id="doFileEdit" style="width:45px;height:20px;" value="削除" />
+                      <input type="hidden" id="fileID" />
+                      <input type="hidden" id="fileDeleteFlg" />
+                    </span>
+                    <span id="isNotFile">
+                      <input type="file" id="uploadedFile" style="width:250px;height:20px" />
+                    </span>
+                    <span id="isAutoDelete">
+                      &nbsp;
+                      <input type="checkbox" id="autoDeleteFlg" />自動削除可
+                    </span>
+                    <span id="isNotAutoDelete">　　自動削除済</span>
+                    <br/>
+                    <input type="hidden" id="fileListIndex" />
+                  </div>
+                  <input type="hidden" id="fileListItemsSave" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br/>
+         
+        <!-- ボタン配置 -->
+        <div id="isEdit">
+          <img onclick="changeUpdChk()" src="../img/btnupd.png" style="width:40px;height:21px;" alt="更新" ></img>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="image" id="doCancel" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+        </div>
+      
+        <div id="isNotEdit">
+          <img onclick="changeInsChk()" src="../img/btnadd.png" style="width:40px;height:21px;" alt="追加" ></img>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="image" id="doCancel" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+        </div>
+        
+        <!-- 隠し項目 -->
+        <input type="button" id="doConfirm" style="display:none;" />
+        <input type="hidden" id="errorMessage" disabled="true" />
+        <script language="JavaScript">
+         <!--
+           if(document.getElementById("errorMessage").value != ""){
+             alert(document.getElementById("errorMessage").value);
+           }
+         // -->
+       </script>
+      </form>
+    </center>
+  </body>
+</html>

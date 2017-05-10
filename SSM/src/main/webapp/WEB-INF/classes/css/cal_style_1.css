@@ -1,0 +1,11 @@
+#cal{
+font-family:georgia;
+}
+#cal h1{
+font-family:helvetica;
+}
+
+#cal.day{display:none;}
+
+#cal ul li{font-family:helvetica;}
+#cal ul li span{color:#ff0000;font-family:georgia;}

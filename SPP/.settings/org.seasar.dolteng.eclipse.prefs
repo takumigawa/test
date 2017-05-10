@@ -1,0 +1,7 @@
+DaoType=S2Dao
+DefaultResourcePath=/SPP/src/main/resources
+DefaultRootPackage=sibpayadvice
+DefaultSrcPath=/SPP/src/main/java
+ServletPath=/SPP
+WebContentsRoot=src/main/webapp/
+eclipse.preferences.version=1

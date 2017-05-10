@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:te="http://www.seasar.org/teeda/extension" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>申請状況一覧</title>
+<link rel="stylesheet" href="/STE/view/css/te02_01.css" />
+<script LANGUAGE="JavaScript" src="/STE/view/js/te0201.js"></script>
+</head>
+<body>
+<form id="Form">
+	<div class="HdrDiv01Add">
+		<h4>申請状況</h4>
+	</div>
+	<div class="HdrDiv01Add">
+		<input type="hidden" id="yearItemsSave" />
+		<select id="year" class="comList" >
+			<option value="0">dummy</option>
+		</select>
+		年
+		<input type="hidden" id="monthItemsSave" />
+		<select id="month" class="comList" >
+			<option value="0">dummy</option>
+		</select>
+		月
+		<input type="submit" class="Button InputButton" id="doNewData" value="新規作成" />
+	</div>
+	<div class="HdrDiv01Add">
+		<input type="hidden" id="kaihaiItemsSave" />
+		<select id="kaihai" class="comList" onchange="chengeList();" >
+			<option value="0">dummy</option>
+		</select>
+		<input type="button" class="Button InputButton" onclick="sendClick();" value="申請する" />
+	</div>
+	<br/>
+	<div class="HdrDiv01">
+		<table class="HdrTbl01">
+			<tbody>
+				<tr>
+					<th class="th06">選択</th>
+					<th class="th01">年月</th>
+					<th class="th02">申請</th>
+					<th class="th03">受取</th>
+					<th class="th04">金額</th>
+					<th class="th05"></th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<input type="hidden" id="optionItemsSave" />
+	<div class="FtrDiv01">
+		<table class="FtrTbl01">
+			<tbody id="payItems">
+				<tr id="datarow" class="dummy">
+					<td class="td06" te:layout="pageDirection" id="isViewChk">
+						<input type="checkbox" name="option" value="dummy" />
+					</td>
+					<td class="td06" te:layout="pageDirection" id="isNotViewChk">
+						<input type="checkbox" name="option" value="dummy" disabled="disabled" />
+					</td>
+					<td class="td01"><span id="empYM"></span></td>
+					<td class="td02"><span id="summary"></span></td>
+					<td class="td03"><span id="uke"></span></td>
+					<td class="td04"><span id="money"></span></td>
+					<td class="td05" id="isView2Chk"><input type="button" id="doinputDetail" value="入" class="SendButton" /></td>
+					<td class="td05" id="isNotView2Chk"><input type="button" id="doinputDetail" value="入" class="SendButton" disabled="disabled" /></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- 隠し項目 -->
+	<input type="button" id="doReflash" style="display:none;"/>
+	<input type="button" id="doSend" style="display:none;"/>
+	<input type="hidden" id="retChk" value="dummy" />	
+	<input type="hidden" id="errMes" />	
+	
+</form>
+</body></html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:te="http://www.seasar.org/teeda/extension" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-小口現金管理</title>
+
+    <link rel="stylesheet" href="../css/commoninput.css" />
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+    
+</head>
+<body>
+<form id="Form">
+<div><span id="messages"></span></div>
+
+	<!-- ログイン情報はBasesClassのメソッド[setLoginInfo]メソッドを呼び出して行う。 -->
+	<center>
+		<div id="contents">
+			<div id="c_pad">
+				<h4>ログイン社員情報</h4>
+				<table border="0" width="800px" >
+					<tbody>
+						<tr>
+							<td>
+								<img src="../img/p3.png" alt="logo" ></img>
+							</td>
+							<td>
+								<table class="companyinflist" style="width=500px;" align="left">
+									<tr>
+										<th>社員コード</th>
+										<td align="left"><span id="employee_id"></span></td>
+									</tr>
+									<tr>
+										<th>社員名</th>
+										<td align="left"><span id="employee_name"></span></td>
+									</tr>
+									<tr>
+										<th>メールアドレス</th>
+										<td align="left"><span id="employee_mail"></span></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</center>
+       
+	<center>
+	<br/>
+		<h4>経理システムメニュー</h4>
+			<table border="1">
+				<tr>
+					<th width="150">経費申請</th>
+						<td align="left" width="200">
+							<ui type="disc">
+							<li><a href="../kor001/kor001g1.html">経費申請</a></li>
+							<li><a href="../kor002/kor002g1.html">仮払申請</a></li>
+							</ui>
+						</td>
+					<th width="150">経費マスタメンテナンス</th>
+						<td align="left" width="200">
+							<ui type="disc">
+							<li><a href="../kom001/kom001g1.html">勘定科目</a></li>
+							<li><a href="../kom002/kom002g1.html">PJ参画者</a></li>
+							</ui>
+						</td>
+				</tr>
+				<tr>
+					<th width="150">経費管理 - PJL</th>
+						<td align="left" width="200">
+							<ui type="disc">
+							<li><a href="../kol001/kol001g1.html">経費申請承認</a></li>
+							<li><a href="../kol002/kol002g1.html">仮払申請承認</a></li>
+							<li><a href="../kol003/kol003g1.html">申請状況</a></li>
+							</ui>
+						</td>
+					<th width="150">経費管理 - 経理担当者</th>
+						<td align="left" width="200">
+							<ui type="disc">
+							<li><a href="../koa001/koa001g1.html">申請可否対象承認</a></li>
+							<li><a href="../koa002/koa002g1.html">申請支払対象承認</a></li>
+							<li><a href="../koa003/koa003g1.html">申請状況総計</a></li>
+							<li><a href="../koa004/koa004g1.html">口座管理</a></li>
+							</ui>
+						</td>
+				</tr>
+			</table>
+			<br/>
+	</center>
+
+</form>
+</body>
+</html>

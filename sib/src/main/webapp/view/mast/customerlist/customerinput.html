@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-顧客マスタ　『新規/更新』</title>
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+    
+    <script type="text/javascript">
+
+      function chengeInsChk(){
+        
+        if( confirm("入力された内容で登録します。\nよろしいですか？")){
+   
+			document.getElementById("doFinishUpdate").click();
+ 
+        }else{
+          return false;
+          
+        }
+        
+      } 
+      
+      function chengeUpdChk(){
+        
+        if( confirm("入力された内容で更新します。\nよろしいですか？")){
+   
+			document.getElementById("doFinishUpdate").click();
+ 
+        }else{
+          return false;
+          
+        }
+        
+      }  
+    </script>
+    
+    <link rel="stylesheet" href="../../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../../css/commoninput.css" />
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../../js/pngfix.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+    <form id="employeeInputForm">
+      <center>
+        <div id="contents">
+          <div id="c_pad">
+            <h4 style="width:740px;">顧客情報編集</h4>         
+            <div id="cal">
+              <table class="companyinflist" style="width=770px;">
+                <tr>
+                  <th align="left">顧客名</th>
+                  <td align="left"><input class="Text" id="CustomerNameStr" style="width:250px;" maxlength="30" title="顧客名" />
+                  <br/><span id="CustomerNameStrMessage"></span></td>
+                </tr>
+                <tr>
+                  <th align="left">顧客名（カナ）</th>
+                  <td align="left">
+                    <input class="Text" id="CustomerNamekanaStr" style="width:250px;" maxlength="60" title="顧客名（カナ）" />
+                    <br/><span id="CustomerNamekanaStrMessage"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">郵便番号</th>
+                  <td align="left">
+                    <input class="Text" id="CustomerpostcodeStr" style="width:100px;" maxlength="8" title="郵便番号" />
+                    <br/><span id="CustomerpostcodeStrMessage"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">住所</th>
+                  <td align="left">
+                    <input class="Text" id="Customeraddress1Str" style="width:350px;" maxlength="60" title="住所" />
+                    <br/><span id="Customeraddress1StrMessage"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">建物名</th>
+                  <td align="left">
+                    <input class="Text" id="Customeraddress2Str" style="width:250px;" maxlength="30" title="建物名" />
+                    <br/><span id="Customeraddress2StrMessage"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">電話番号</th>
+                  <td align="left">
+                    <input class="Text" id="CustomertelStr" style="width:100px;" maxlength="20" title="電話番号" />
+                    <br/><span id="CustomertelStrMessage"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">FAX</th>
+                  <td align="left">
+                    <input class="Text" id="CustomerfaxStr" style="width:100px;" maxlength="20" title="FAX" />
+                    <br/><span id="CustomerfaxStrMessage"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">メールアドレス</th>
+                  <td align="left">
+                    <input class="Text" id="CustomeremailStr" style="width:250px;" maxlength="32" title="メールアドレス" />
+                    <br/><span id="CustomeremailStrMessage"></span>
+                  </td>
+                </tr>
+
+                    <tr>
+                      <th align="left">有効/無効</th>
+                      <td align="left">
+                      	<div id="isUpdate-1">
+                         <input type="hidden" id="kaihaiItemsSave" />
+                         <select id="kaihai" style="width:100px;">
+                           <option value="0">dummy</option>
+                         </select>
+                      	</div>
+                      	<div id="isNotUpdate-1">
+                           有効
+                      	</div>
+
+                      </td>
+                    </tr>
+                    
+                <tr>
+                  <th align="left">表示順</th>
+                  <td align="left">
+                    <input class="Text" id="orderSEQStr" style="width:60px;" maxlength="8" title="表示順" />
+                    <br/><span id="orderSEQStrMessage"></span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <br/>
+            <h1><span id="UpdateMes"></span></h1>
+          </div>
+        </div>
+      </center>
+      <br/>
+      <br/>
+      <div id="isUpdate-2">
+        <img onclick="chengeUpdChk()" src="../../img/btnupd.png" style="width:40px;height:21px;" alt="更新" ></img>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="image" id="doFinishReturn" src="../../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+      </div>
+      <div id="isNotUpdate-2">
+        <img onclick="chengeInsChk()" src="../../img/btnadd.png" style="width:40px;height:21px;" alt="追加" ></img>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="image" id="doFinishReturn" src="../../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+      </div>
+      <!-- 隠し項目 -->
+      <input type="button" id="doFinishUpdate" style="display:none;"/>
+      <input type="hidden" id="dOru"/>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-トピックス　『詳細』</title>
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+    <script type="text/javascript" src="../js/calendar.js" ></script>
+    
+    <link rel="stylesheet" href="../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../css/commoninput.css" />
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+  
+  </head>
+  
+  <body onload="getFileName()">
+    <center>
+      <form id="topicsViewForm" enctype="multipart/form-data">
+        <div id="contents">
+          <div id="c_pad">
+            <h4>トピックス詳細</h4>
+          </div>
+        </div>
+
+        <!-- スクロールバー(開始) -->
+        <div id="cal">
+          <table class="companyinflist" style="width=550px;">
+            <tbody>
+              <tr>
+                <th align="left" style="width:150px;">ID</th>
+                <td align="left" style="width:400px;">
+                  <span id="tipsID"></span>
+                </td>
+              </tr>
+              <tr>
+                <th align="left" style="width:150px;">掲載開始日</th>
+                <td align="left" style="width:400px;">
+                  <span id="startDate"></span>
+                </td>
+              </tr>
+              <tr>
+                <th align="left" style="width:150px;">掲載終了日</th>
+                <td align="left" style="width:400px;">
+                  <span id="endDate"></span>
+                </td>
+              </tr>
+              <tr>
+                <th align="left" style="width:150px;">内容</th>
+                <td align="left" style="width:400px;">
+                  <span id="note"></span>
+                </td>
+              </tr>
+              <tr>
+                <th align="left" style="width:150px;">作成者</th>
+                <td align="left" style="width:400px;">
+                  <span id="createdEmpName"></span>
+                </td>
+              </tr>
+              <tr>
+                <th align="left" style="width:150px;">優先順位</th>
+                <td align="left" style="width:400px;">
+                  <span id="priority"></span>
+                </td>
+              </tr>
+              <tr>
+                <th align="left" style="width:150px;">添付ファイル</th>
+                <td align="left" style="width:400px;word-break:break-all;">
+                  <input type="hidden" id="fileIDItemsSave" />
+                  <span id="fileIDItems">
+                    <span id="isFile">
+                      <span id="fileName"></span>
+                      <span id="isFileDelete">
+                        <input type="image" id="doDownload" src="../img/file.png" alt="ダウンロード" />
+                      </span>
+                      <span id="isNotFileDelete">&nbsp;&nbsp;（削除済）</span>
+                      <br/>
+                      <input type="hidden" id="fileID" />
+                      <input type="hidden" id="fileDeleteFlg" />
+                    </span>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br/>
+         
+        <!-- ボタン配置 -->
+        <span id="isAuthority">
+          <input type="image" id="doEdit" src="../img/btnedit.png" style="width:40px;height:21px;" alt="編集" />
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="image" id="doDelete" src="../img/btndis.png" style="width:40px;height:21px;" alt="削除" />
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+        <input type="image" id="doCancel" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+        
+        <!-- 隠し項目 -->
+        <input type="hidden" id="empID" />
+      </form>
+    </center>
+  </body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:te="http://www.seasar.org/teeda/extension" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-経費管理-仮払一覧画面</title>
+
+    <link rel="stylesheet" href="../css/commoninput.css" />
+
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+	 var ie = "iestyle.css";
+	 var netscape = "niestyle.css";
+	 var cssfile;
+	 var browser = navigator.appName;
+
+	 if (browser == "Microsoft Internet Explorer") {
+		 cssfile = ie;
+	 } else {
+  		 cssfile = netscape;
+	 }
+
+	document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+<!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+	<form id="Form">
+		<div>
+			<span id="messages"></span>
+		</div>
+
+		<!-- ログイン情報はBasesClassのメソッド[setLoginInfo]メソッドを呼び出して行う。 -->
+		<center>
+			<div id="contents">
+				<div id="c_pad">
+					<h4>ログイン社員情報</h4>
+					<table border="0" width="700px">
+						<tbody>
+							<tr>
+								<td><img src="../img/p3.png" alt="logo"></img></td>
+								<td>
+									<table class="companyinflist" style="width=500px;" align="left">
+										<tr>
+											<th>社員コード</th>
+											<td align="left"><span id="employee_id"></span></td>
+										</tr>
+										<tr>
+											<th>社員名</th>
+											<td align="left"><span id="employee_name"></span></td>
+										</tr>
+										<tr>
+											<th>メールアドレス</th>
+											<td align="left"><span id="employee_mail"></span></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</center>
+		<!-- 検索条件エリアタイトル -->
+		<center>
+			<div id="contents">
+				<div id="c_pad">
+					<h2>仮払申請一覧</h2>
+				</div>
+			</div>
+		</center>
+		<!-- 検索条件エリア-->
+		<center>
+			<div style="width: 770px; padding: 10px;">
+				<table class="companyinflist" style="width=500px;" align="left">
+					<tr>
+						<th style="width: 180px;">検索条件</th>
+						<td>請求日 <br></br>
+						<!-- 検索プルダウン年表示 -->
+						<input type="hidden" id="yearItemsSave" />
+						<select id="year" name="form:yearlist" style="width: 100px;">
+						</select>
+						
+						<!-- 検索プルダウン月表示 -->
+						<input type="hidden" id="monthItemsSave" />
+						<select id="month" name="form:monthlist" style="width: 60px;">
+						</select>
+						
+						</td>
+						<!-- 検索プルダウンステータス表示 -->
+						<td style="width: 120px;">ステータス <br></br> <input type="hidden" id="statusItemsSave" />
+							<select id="status" name="form:strlist" style="width: 100px;">
+						</select>
+						</td>
+						<td><input type="image" id="doSrech" src="../img/btnsrc.png"
+							style="width: 60px; height: 21px;" alt="絞り込み" />
+							&nbsp;&nbsp;&nbsp;&nbsp; <input type="image" id="doSrechCancel"
+							src="../img/btnsrccan.png" style="width: 60px; height: 21px;"
+							alt="絞り込み解除" /></td>
+						<td style="width: 100px;"><input type="image" id="doinsnew" src="../img/btnnew.png"
+							style="width: 60px; height: 21px;" alt="新規登録" /></td>
+					</tr>
+				</table>
+			</div>
+		</center>
+		<!-- 行間 -->
+		<table>
+			<tr>
+				<td><div style="width: 700px;"></div></td>
+			</tr>
+		</table>
+		<!-- 仮払一覧照会エリア-->
+		<center>
+		 <!-- スクロールバー(開始) -->
+			<div style="width:770px;height:300px;overflow-y:scroll;padding:10px;">
+				<table class="companyinflist" style="" align="left">
+					<tbody>
+						<tr>
+							<th style="width: 60px;">請求日</th>
+							<th style="width: 60px;">仮払日</th>
+							<th style="width: 180px;">プロジェクトコード<br/>プロジェクト名</th>
+							<th style="width: 120px;">ステータス</th>
+							<th style="width: 90px;">金額</th>
+							<th style="width: 60px;">更新日</th>
+							<th style="width: 100px;">明細入力</th>
+							<th style="width: 70px;"></th>
+						</tr>
+					</tbody>
+					<tbody id="keihiItems">
+						<tr>
+							<td style="width: 60px;" align="left"><span id="seikydate"></span></td>
+							<td style="width: 60px;" align="left"><span id="karibaraidate"></span></td>
+							<td style="width: 180px;" align="left"><span id="pjcode"></span><br/><span id="pjname"></span></td>
+							<td style="width: 120px;" align="left"><span id="statusname"></span></td>
+							<td style="width: 90px;" align="right"><span id="kin"></span></td>
+							<td style="width: 60px;" align="left"><span id="upddate"></span></td>
+							<td style="width: 100px;" align="left"><span id="meisai"></span></td>
+							<td style="width: 70px;"><input type="image" id="doinfo" src="../img/btndeta.png" style="width:40px;height:21px;" alt="詳細" /></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<input type="image" id="doFinishReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+            <br/>
+		</center>
+	</form>
+</body>
+</html>

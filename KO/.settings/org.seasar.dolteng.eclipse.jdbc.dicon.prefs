@@ -1,0 +1,7 @@
+Charset=UTF-8
+ConnectionName=jdbc.dicon
+ConnectionUrl=jdbc\:mysql\://133.242.134.145\:3306/sibko?characterEncoding\=UTF-8&characterSetResults\=UTF-8
+DriverClass=com.mysql.jdbc.Driver
+Pass=sib1962
+User=user1
+eclipse.preferences.version=1

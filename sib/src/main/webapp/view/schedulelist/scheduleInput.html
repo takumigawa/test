@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-スケジュール　『新規/更新』</title>
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+    
+    <!-- JavaScript -->
+	<script type="text/javascript" src="../js/CommonClientCheck.js" ></script>
+	<script type="text/javascript" src="../js/calendar.js" ></script>
+	<script type="text/javascript" src="scheduleChk.js" ></script>
+    <script type="text/javascript">
+
+      cal1 = new JKL.Calendar("caldiv1","schInputForm","startDate");
+      cal2 = new JKL.Calendar("caldiv2","schInputForm","endDate");
+      window.document.onclick=calClick;
+      
+      function calClick(e){
+        var o=e?e.target:event.srcElement;  
+        if(o.id.indexOf("caldiv1",0) == -1) {
+          if(o.id != "startDate") {
+            cal1.initDate();
+            cal1.hide();
+          }
+        }
+        if(o.id.indexOf("caldiv2",0) == -1) {
+          if(o.id != "endDate") {
+            cal2.initDate();
+            cal2.hide();
+          }
+        }
+      }
+      
+      function combChange(){
+        document.getElementById("doCombChange").click();
+      }
+      
+      function changeInsChk(){
+        if(!chkInput()){
+			document.getElementById("doConfirm").click();
+		}
+      } 
+      
+      function changeUpdChk(){
+        if(!chkInput()){
+			document.getElementById("doConfirm").click();
+		}
+      }
+        
+    </script>
+    
+    <link rel="stylesheet" href="../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../css/commoninput.css" />
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+    <form id="schInputForm">
+      <center>
+        <div id="contents">
+          <div id="c_pad">
+            <h4>スケジュール登録</h4>
+          </div>
+        </div>
+
+        <div id="cal">
+          <table class="companyinflist" style="width=750px;">
+            <tr>
+              <th style="width:100px;" align="left">開始日時</th>
+              <td align="left">
+                <input class="Text" id="startDate" style="width:100px;" maxlength="10" onClick="cal2.hide(); cal1.write();" onChange="cal1.getFormValue(); cal1.hide();" />
+                <span id="caldiv1"></span>
+			 	&nbsp;&nbsp;
+			 	<input type="hidden" id="startHourItemsSave" />
+			 	<select id="startHour" style="width:50px;">
+                  <option value="0">dummy</option>
+			 	</select>
+			 	&nbsp;：
+			 	<input type="hidden" id="startMinItemsSave" />
+			 	<select id="startMin" style="width:50px;">
+                  <option value="0">dummy</option>
+			 	</select>
+              </td>
+            </tr>
+            <tr>
+              <th style="width:100px;" align="left">終了日時</th>
+              <td align="left">
+                <input class="Text" id="endDate" style="width:100px;" maxlength="10" onClick="cal1.hide(); cal2.write();" onChange="cal2.getFormValue(); cal2.hide();" />
+                <span id="caldiv2"></span>
+			 	&nbsp;&nbsp;
+			 	<input type="hidden" id="endHourItemsSave" />
+			 	<select id="endHour" style="width:50px;">
+                  <option value="0">dummy</option>
+			 	</select>
+			 	&nbsp;：
+			 	<input type="hidden" id="endMinItemsSave" />
+			 	<select id="endMin" style="width:50px;">
+                  <option value="0">dummy</option>
+			 	</select>
+              </td>
+            </tr>
+            <tr>
+              <th style="width:100px;" align="left">タイトル</th>
+              <td align="left">
+                <input class="Text" id="titel" style="width:200px;" maxlength="50" />
+              </td>
+            </tr>
+            <tr>
+              <th style="width:100px;" align="left">内容</th>
+              <td align="left">
+                <textarea id="note" rows="10" style="width:300px;"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <th style="width:100px;" align="left">参加者</th>
+              <td>
+                <table style="width:550px;">
+                  <tr>
+                    <td style="border-style:none;width:500px;" align="right" colspan="3" >
+                      <b>グループ指定</b>
+                      <input type="hidden" id="groupNameItemsSave" />
+                      <select id="groupName" style="width:150px;" onChange="combChange();">
+                        <option value="0">dummy</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:200px; border-style:none;">
+                      <input type="hidden" id="joinEmpItemsSave" />
+                      <select id="joinEmp" multiple="multiple" style="width:180px;height:200px;">
+                        <option value="0">dummy</option>
+                      </select>
+                    </td>
+                    <td style="width:100px; border-style:none;">
+                      <input type="image" id="doJoin" src="../img/btnattach.png" style="width:40px;height:21px;" alt="追加" />
+                      <br/>
+                      <br/>
+                      <input type="image" id="doAbsence" src="../img/btnretach.png" style="width:40px;height:21px;" alt="削除" />
+                    </td>
+                    <td style="width:200px; border-style:none;">
+                      <input type="hidden" id="absenceEmpItemsSave" />
+                      <select id="absenceEmp" multiple="multiple" style="width:180px;height:200px;">
+                        <option value="0">dummy</option>
+                      </select>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <th style="width:100px;" align="left">優先順位</th>
+              <td align="left">
+                <input type="hidden" id="priorityItemsSave" />
+				<select id="priority" style="width:50px;">
+                  <option value="0">dummy</option>
+				</select>
+				&nbsp;&nbsp;※&nbsp;0:低&nbsp;～&nbsp;5：高
+              </td>
+            </tr>
+          </table>
+        </div>
+        <br/>
+
+        <div id="isEdit">
+          <img onclick="changeUpdChk()" src="../img/btnupd.png" style="width:40px;height:21px;" alt="更新" ></img>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="image" id="doCancel" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+        </div>
+      
+        <div id="isNotEdit">
+          <img onclick="changeInsChk()" src="../img/btnadd.png" style="width:40px;height:21px;" alt="追加" ></img>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="image" id="doCancel" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+        </div>
+        <br/>
+        <br/>
+      </center>
+      
+      <!-- 隠し項目 -->
+      <input type="button" id="doConfirm" style="display:none;" />
+      <input type="button" id="doCombChange" style="display:none;" />
+	  <input type="hidden" id="retErrMess" />
+	  <script language="JavaScript">
+		<!--
+		  if(document.getElementById("retErrMess").value != ""){
+		    alert(document.getElementById("retErrMess").value);
+		  }
+        // -->
+      </script>
+    </form>
+  </body>
+</html>

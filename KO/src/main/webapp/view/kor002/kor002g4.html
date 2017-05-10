@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:te="http://www.seasar.org/teeda/extension" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-小口現金管理</title>
+
+    <link rel="stylesheet" href="../css/commoninput.css" />
+
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<form id="Form">
+<div><span id="messages"></span></div>
+<!-- ログイン情報ヘッダ -->
+<!-- ログイン情報はBasesClassのメソッド[setLoginInfo]メソッドを呼び出して行う。 -->
+		<center>
+		<div id="contents">
+			<div id="c_pad">
+				<h4>ログイン社員情報</h4>
+				<table border="0" width="700px" >
+					<tbody>
+						<tr>
+							<td>
+								<img src="../img/p3.png" alt="logo" ></img>
+							</td>
+							<td>
+								<table class="companyinflist" style="width=500px;" align="left">
+									<tr>
+										<th>社員コード</th>
+										<td align="left"><span id="employee_id"></span></td>
+									</tr>
+									<tr>
+										<th>社員名</th>
+										<td align="left"><span id="employee_name"></span></td>
+									</tr>
+									<tr>
+										<th>メールアドレス</th>
+										<td align="left"><span id="employee_mail"></span></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</center>
+<!-- 仮払い明細入力タイトルヘッダ -->
+	<center>
+		<div id="contents">
+			<div id="c_pad">
+				<h4>仮払い明細入力</h4>
+			</div>
+		</div>
+	</center>
+<!-- 仮払い明細入力エリア -->
+	<center>
+		<div style="width:700px;padding:10px;hight:100px">
+			<table class="companyinflist" style="width:500px;hight:100px" align="center" >		
+				<tr>
+				<tr>
+					<th>使用日</th>
+					<td align="left"><input type="text" id="siyouday" name="" />
+					<span id="siyoudayMessage">dummy</span></td>
+				</tr>
+				</tr>
+				<tr>
+					<th>勘定科目</th>
+					<td align="left">
+				 		<input type="hidden" id="kanjoItemsSave" />
+						<select id="kanjo" name="form:kanjolist" style="width:100px;" />
+					</td>
+				</tr>
+				<tr>
+					<th>金額</th>
+					<td align="left"><input type="text" id="meisaikin" size="15"
+					 maxlength="10" value="0" style="text-align:right;" class="T_currency" />
+					 <span id="kinMessage">dummy</span>
+					</td>
+				</tr>
+				<tr>
+					<th>備考</th>
+					<td align="left"><input type="text" id="biko" name=""  size="30" /></td>
+				</tr>
+				</table>
+			</div>
+	</center>
+<!-- 明細登録ボタンエリア -->
+	<center>
+	<table>
+		<tr>
+		<td>
+		<div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			<input type="image" id="doInsnew" src="../img/btnadd.png" style="width:40px;height:21px;" alt="保存" />
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="image" id="doReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+			<br/>
+				<h1><span id="InsertMes"></span></h1>
+			<br/>
+		</td>
+		</tr>
+		</table>
+	</center>
+<!-- 仮払い明細一覧タイトルヘッダ -->
+	<center>
+		<div id="contents">
+		<div id="c_pad">
+			<h4>仮払い明細一覧</h4>
+		</div>
+		</div>
+<!-- 仮払い明細一覧エリア -->
+		<div style="width:770px;padding:10px;">
+			<table class="companyinflist" style="width=550px;" align="center">
+			<tr>
+				<th style="width:100px;">使用日</th>
+				<th style="width:100px;">勘定科目</th>
+				<th style="width:100px;">金額</th>
+				<th style="width:180px;">備考</th>
+				<th style="width:70px;"></th>
+			</tr>
+			<tbody id="meisaiItems">
+			<tr>
+				<td style="width:120px;" align="left" ><span id="siyouday"></span></td>
+				<td style="width:120px;" align="left" ><span id="kanjoname"></span></td>
+				<td style="width:150px;" align="left" ><span id="meikin"></span></td>
+				<td style="width:200px;" align="left" ><span id="biko"></span></td>
+				<td style="width:70px;">
+					<input type="image" id="dodelete" src="../img/btndeta.png" style="width:40px;height:21px;" alt="取り消し" />
+				</td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+	</center>
+<!-- 仮払い総計エリア -->
+	<center>
+		<div style="width:770px;padding:10px;">
+			<table class="companyinflist" style="width=500px;" align="center">
+			<tr>
+				<th style="width:150px;">仮払い金額</th>
+				<td style="width:150px;" align="left" ><span id="karibarai_kin"></span></td>
+			</tr>
+			<tr>
+				<th style="width:150px;">総使用金額</th>
+				<td style="width:150px;" align="left" ><span id="total_kin"></span></td>
+			</tr>
+			<tr>
+				<th style="width:150px;">未使用金額/不足金額</th>
+				<td style="width:150px;" align="left" ><span id="adjust_kin"></span></td>
+			</tr>
+		</table>
+		</div>
+	</center>
+<!-- 明細申請ボタンエリア -->
+	<center>
+	<table>
+		<tr>
+		<td>
+		<div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			<input type="image" id="doUpdate" src="../img/btnadd.png" style="width:40px;height:21px;" alt="申請" />
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="image" id="doReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+			<br/>
+				<h1><span id="UpdateMes"></span></h1>
+			<br/>
+		</td>
+		</tr>
+		</table>
+	</center>
+</form>
+</body>
+</html>

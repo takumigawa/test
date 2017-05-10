@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:te="http://www.seasar.org/teeda/extension" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-小口現金管理</title>
+
+    <link rel="stylesheet" href="../css/commoninput.css" />
+
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<form id="Form">
+<div><span id="messages"></span></div>
+<!-- ログイン情報ヘッダ -->
+<!-- ログイン情報はBasesClassのメソッド[setLoginInfo]メソッドを呼び出して行う。 -->
+		<center>
+		<div id="contents">
+			<div id="c_pad">
+				<h4>ログイン社員情報</h4>
+				<table border="0" width="700px" >
+					<tbody>
+						<tr>
+							<td>
+								<img src="../img/p3.png" alt="logo" ></img>
+							</td>
+							<td>
+								<table class="companyinflist" style="width=500px;" align="left">
+									<tr>
+										<th>社員コード</th>
+										<td align="left"><span id="employee_id"></span></td>
+									</tr>
+									<tr>
+										<th>社員名</th>
+										<td align="left"><span id="employee_name"></span></td>
+									</tr>
+									<tr>
+										<th>メールアドレス</th>
+										<td align="left"><span id="employee_mail"></span></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</center>
+<!-- 小口請求情報編集タイトル -->
+	<center>
+		<div id="contents">
+			<div id="c_pad">
+				<h4>小口請求情報編集</h4>
+			</div>
+		</div>
+	</center>
+<!-- 小口請求情報編集エリア -->
+	<center>
+		<div style="width:700px;padding:10px;hight:100px">
+			<table class="companyinflist" style="width:500px;hight:100px" align="center" >
+				<tr>
+					<th>申請日</th>
+					<td align="left"><span id="sinsei_Date"></span></td>
+				</tr>
+				<tr>
+					<th>ステータス</th>
+          			<td align="left"><span id="state_id"></span></td>
+				</tr>
+				<tr>
+					<th>使用日</th>
+					<td align="left">
+							<input class="text" id="usedday_id" name="Usedday" size="10" />
+					</td>
+				</tr>
+				<tr>
+					<th>プロジェクトコード</th>
+					<td align="left">
+							<input class="text" id="pjcode_id" name="pjcode" size="10" />
+					</td>
+				</tr>
+				<tr>
+					<th>勘定科目</th>
+					<td  align="left">
+ 							<input type="hidden" id="kanjostr" />
+							<select id="kanjoname" style="width:100px;">
+  								<option value="0">選択してください</option>
+							</select>
+					</td>
+				</tr>
+				<tr>
+					<th>金額</th>
+					<td align="left">
+						<input type="text" id="kingaku_id" name="kinkaku" size="20" maxlength="17" value="0"  class="T_currenccy"/>
+					</td>
+				</tr>
+				<tr>
+					<th>備考</th>
+					<td align="left">
+						<input class="text"  id="bikou_id" name="bikou" size="60" title="備考" />
+					</td>
+				</tr>
+				</table>
+			</div>
+	</center>
+<!-- 更新ボタンエリア -->
+	<center>
+	<table>
+		<tr>
+		<td align="left">
+		<h><span id="UpdateMes"></span></h>
+		</td>
+		</tr>
+
+
+		<tr>
+		<td>
+			<div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			<input type="image" id="doUpdate" src="../img/btnupd.png" style="width:40px;height:21px;" alt="更新" />
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="image" id="doUpdateCancel" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+		</td>
+		</tr>
+		</table>
+	</center>
+<!-- 小口請求メッセージヘッダ -->
+	<center>
+		<div id="contents">
+		<div id="c_pad">
+			<h4>やり取りメッセージ</h4>
+		</div>
+		</div>
+		<div style="width:700px;padding:10px;">
+			<table class="companyinflist" style="width=500px;" align="center">
+			<tbody>
+			<tr>
+				<td style="width:150px;" >メッセージ追加</td>
+				<td style="width:450px;">
+					<input type="text" id="message_id" name="message" size="70" />
+				</td>
+				<td style="width:100px;">
+					<input type="image" id="doUpdatemessage" src="../img/btnnew.png" style="width:60px;height:21px;" alt="新規登録" />
+				</td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+<!-- 小口請求メッセージエリア -->
+		<div style="width:770px;padding:10px;">
+			<table class="companyinflist" style="width=500px;" align="center">
+			<tr>
+				<th style="width:100px;">送信日</th>
+				<th style="width:100px;">送信者</th>
+				<th style="width:500px;">メッセージ</th>
+				<th style="width:70px;"></th>
+			</tr>
+			<tbody id="messageItems">
+			<tr>
+				<td style="width:100px;" align="left" ><span id="transday_id"></span></td>
+				<td style="width:100px;" align="left" ><span id="sender_id"></span></td>
+				<td style="width:500px;" align="left" ><span id="message_id"></span></td>
+				<td style="width:70px;">
+					<input type="image" id="messageinfo" src="../img/btndeta.png" style="width:40px;height:21px;" alt="詳細" />
+				</td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+	</center>
+</form>
+</body>
+</html>

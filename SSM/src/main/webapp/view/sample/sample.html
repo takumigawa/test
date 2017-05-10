@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:te="http://www.seasar.org/teeda/extension" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-小口現金管理</title>
+
+    <link rel="stylesheet" href="../css/commoninput.css" />
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+    
+</head>
+<body>
+<form id="Form">
+<div><span id="messages"></span></div>
+
+	<!-- ログイン情報はBasesClassのメソッド[setLoginInfo]メソッドを呼び出して行う。 -->
+	<center>
+		<div id="contents">
+			<div id="c_pad">
+				<h4>ログイン社員情報</h4>
+				<table border="0" width="800px" >
+					<tbody>
+						<tr>
+							<td>
+								<img src="../img/p3.png" alt="logo" ></img>
+							</td>
+							<td>
+								<table class="companyinflist" style="width=500px;" align="left">
+									<tr>
+										<th>社員コード</th>
+										<td align="left"><span id="employee_id"></span></td>
+									</tr>
+									<tr>
+										<th>社員名</th>
+										<td align="left"><span id="employee_name"></span></td>
+									</tr>
+									<tr>
+										<th>メールアドレス</th>
+										<td align="left"><span id="employee_mail"></span></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</center>
+       
+	<!--　画面の内容を以下に記入する -->
+
+</form>
+</body>
+</html>

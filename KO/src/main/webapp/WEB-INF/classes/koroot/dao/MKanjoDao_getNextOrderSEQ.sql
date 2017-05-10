@@ -1,0 +1,2 @@
+SELECT MAX(orderSEQ) + 10 AS MAXKANID
+  FROM m_kanjo

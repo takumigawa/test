@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-社員一覧　『詳細』</title>
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+      
+    <link rel="stylesheet" href="../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../css/commoninput.css" />
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+    <form id="employeeInputForm">
+       <center>
+         <div id="contents">
+           <div id="c_pad">
+             <h4 style="width:740px;">社員情報編集</h4>         
+
+       
+                <div id="cal">
+          
+                  <table class="companyinflist" style="width=770px;">
+                    <tr>
+                      <th align="left">社員名</th>
+                      <td align="left">
+                        <span id="EmployeeNameStr"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">社員名（カナ）</th>
+                      <td align="left">
+                        <span id="EmployeeNamekanaStr"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">役職</th>
+                      <td align="left">
+                        <span id="EmployeeclassStr"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">メールアドレス１</th>
+                      <td align="left">
+                        <span id="EmployeeemailStr"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">メールアドレス２</th>
+                      <td align="left">
+                        <span id="Employeeemail2Str"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">メールアドレス３</th>
+                      <td align="left">
+                        <span id="Employeeemail3Str"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">
+                        <table>
+                          <tr>
+                            <th style="border-style:none;">郵便番号</th>
+                          </tr>
+                          <tr>
+                            <th style="border-style:none;">住所</th>
+                          </tr>
+                          <tr>
+                            <th style="border-style:none;">建物名</th>
+                          </tr>
+                        </table>
+                      </th>
+                      <td align="left">
+                        <table style="border-style:none;">
+                          <tr>
+                            <td style="border-style:none;"><span id="EmployeepostcodeStr"></span></td>
+                          </tr>
+                          <tr>
+                            <td style="border-style:none;"><span id="Employeeaddress1Str"></span></td>
+                          </tr>
+                          <tr>
+                            <td style="border-style:none;"><span id="Employeeaddress2Str"></span></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">電話番号</th>
+                      <td align="left">
+                        <span id="EmployeetelStr"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">携帯電話</th>
+                      <td align="left">
+                        <span id="EmployeemphoneStr"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">FAX</th>
+                      <td align="left">
+                        <span id="EmployeefaxStr"></span>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <br/>
+                     </div>
+         </div>
+       </center>
+                <br/>
+                <br/>
+			<input type="image" id="doFinishReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+				
+    </form>
+  </body>
+</html>

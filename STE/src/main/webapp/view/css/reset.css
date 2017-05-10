@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+body {
+    line-height:1;
+    margin:0px;
+    box-sizing :border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0px;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+table {
+	box-sizing :border-box;
+	padding : 0px;
+	border-collapse: collapse;
+	border-spacing : 0px;
+}
+
+table tr {
+	box-sizing :border-box;
+	padding : 0px;
+	border-collapse: collapse;
+	border-spacing : 0px;
+}
+
+table td {
+	box-sizing :border-box;
+	padding : 3px;
+	border-collapse: collapse;
+	border-spacing : 0px;
+}
+
+table th {
+	box-sizing :border-box;
+	padding : 0px;
+	border-collapse: collapse;
+	border-spacing : 0px;
+}
+
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+ul {
+	list-style:none;
+	padding:0;
+}
+li {
+	padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+a {
+    display: block;
+}
+
+a {
+    -webkit-tap-highlight-color:transparent;
+}

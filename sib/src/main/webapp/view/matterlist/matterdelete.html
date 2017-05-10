@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-案件情報　『詳細』</title>
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+        
+    <link rel="stylesheet" href="../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../css/commoninput.css" />
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+    <form id="employeeDeleteForm">
+      <center>
+        <div id="contents">
+          <div id="c_pad">
+            <h4 style="width:740px;">案件情報詳細</h4>
+            <br/>
+            <div id="isEnable-1">
+              <h1>以下の案件情報を無効にします。よければ無効ボタンを押してください。</h1>
+            </div>
+            <div id="isNotEnable-1">
+              <h1>以下の案件情報を有効にします。よければ有効ボタンを押してください。</h1>
+            </div>
+            <br/>
+            <br/>    
+            <div id="cal">
+              <table class="companyinflist" style="width=770px;">
+                <tr>
+                  <th align="left">社員名</th>
+                  <td align="left">
+                    <span id="EmployeeNameStr"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">案件タイトル</th>
+                  <td align="left">
+                    <span id="MatterTitleStr"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">商流</th>
+                  <td align="left">
+                    <table border="0" id="cdItems" >
+                      <tr>
+                        <td style="border-style:none;border-width:0xp 0xp 0px 0px;"><span id="userName"></span></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">案件場所</th>
+                  <td align="left">
+                    <span id="MatteraddressStr"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">期間</th>
+                  <td align="left">
+                    <span id="MatterbetweenStr"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">案件内容</th>
+                  <td align="left">
+                    <span id="MatternoteStr"></span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <br/>
+          </div>
+        </div>
+      </center>
+      <br/>
+      <br/>
+
+      <div id="isEnable-2">
+        <input type="image" id="doFinishUpdate" src="../img/btndis.png" style="width:40px;height:21px;" alt="無効" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="image" id="doFinishReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+      </div>
+      <div id="isNotEnable-02">
+        <input type="image" id="doFinishUpdate" src="../img/btnena.png" style="width:40px;height:21px;" alt="有効" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="image" id="doFinishReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+      </div>
+
+    </form>
+  </body>
+</html>

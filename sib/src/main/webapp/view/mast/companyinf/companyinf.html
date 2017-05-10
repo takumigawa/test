@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-会社情報マスタ</title>
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+
+    <link rel="stylesheet" href="../../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../../css/commoninput.css" />
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../../js/pngfix.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+    <center>
+      <form id="companyinfForm">
+        <div id="contents">
+          <div id="c_pad">
+            <h4>会社情報</h4>
+            <div id="cal">
+              <table class="companyinflist" style="width=770px;">
+                <tr>
+                  <th align="left">会社名</th>
+                  <td align="left"><input class="Text" id="companyNameStr" maxlength="32" title="会社名" />
+                  <br/><span id="companyNameStrMessage"></span></td>
+                </tr>
+                <tr>
+                  <th align="left">代表者名</th>
+                  <td align="left">
+                    <input class="Text" id="companyPresidentNameStr" style="width:100px;" maxlength="10" title="代表者名" />
+                    <br/><span id="companyPresidentNameStrMessage"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">代表者の役職名</th>
+                  <td align="left">
+                    <input type="hidden" id="PresidentCdItemsSave" />
+                    <select id="PresidentCd" style="width:200px;">
+                      <option value="0">dummy</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">郵便番号</th>
+                  <td align="left">
+                    <input class="Text" id="companyPostCodeStr" style="width:100px;" maxlength="8" title="郵便番号"/>
+                    <br/><span id="companyPostCodeStrMessage"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">住所</th>
+                  <td align="left">
+                    <input class="Text" id="companyAddress1Str" style="width:350px;" maxlength="32" title="住所" />
+                    <br/><span id="companyAddress1Str"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">建物名</th>
+                  <td align="left">
+                    <input class="Text" id="companyAddress2Str" style="width:250px;" maxlength="16" title="建物名" />
+                    <br/><span id="companyAddress2StrMessage"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">電話番号</th>
+                  <td align="left">
+                    <input class="Text" id="companyTelStr" style="width:120px;" maxlength="20" title="電話番号" />
+                    <br/><span id="companyTelStrMessage"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">FAX</th>
+                  <td align="left">
+                    <input class="Text" id="companyFaxStr" style="width:120px;" maxlength="20" title="FAX番号" />
+                    <br/><span id="companyFaxStrMessage"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">メールアドレス</th>
+                  <td align="left">
+                    <input class="Text" id="companyemailStr" style="width:250px;" maxlength="32" title="メールアドレス" />
+                    <br/><span id="companyemailStrMessage"></span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <br/>
+            <h1><span id="UpdateMes"></span></h1>
+            <br/>
+            <br/>
+            <input type="image" id="doEntrydd" src="../../img/btnupd.png" style="width:40px;height:21px;" alt="更新" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="image" id="doReturn" src="../../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+          </div>
+        </div>
+        <!-- 隠し項目 -->
+        <input type="button" id="doEntrydd" style="display:none;"/>
+      </form>
+    </center>
+  </body>
+</html>

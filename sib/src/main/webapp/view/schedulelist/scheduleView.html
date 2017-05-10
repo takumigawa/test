@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-スケジュール　『詳細』</title>
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+ 
+    <script type="text/javascript">
+      
+      function checkDelete(){
+        
+        if( confirm("削除の場合、参加者全員のスケジュールが削除されます。\nよろしいですか？\n\n※参加者を変更する場合は、編集で参加者を変更してください。")){
+    		document.getElementById("doDelete").click();
+        }else{
+          return false; 
+        }
+      }
+      
+    </script>
+    
+    <link rel="stylesheet" href="../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../css/commoninput.css" />
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+    
+  </head>
+  
+  <body>
+    <CENTER>
+      <form id="scheduleViewForm">
+        
+        <div id="contents">
+          <div id="c_pad">
+            <h4>スケジュール詳細</h4>
+          </div>
+        </div>         
+
+        <div id="cal"> 
+          <table class="companyinflist" style="width=770px;">
+            <tr>
+              <th align="left">起案者</th>
+              <td align="left">
+			   	<span id="schEmpNameStr">新井</span>
+              </td>
+            </tr>
+            <tr>
+              <th align="left">開始日時</th>
+              <td align="left">
+                <span id="startDateStr">2009/12/21</span>
+			 	&nbsp;&nbsp;
+			 	<span id="startTimeStr">10:00</span>
+              </td>
+            </tr>
+            <tr>
+              <th align="left">終了日時</th>
+              <td align="left">
+                <span id="endDateStr">2009/12/21</span>
+			 	&nbsp;&nbsp;
+			 	<span id="endTimeStr">12:00</span>
+              </td>
+            </tr>
+            <tr>
+              <th align="left">タイトル</th>
+              <td align="left">
+                <span id="titelStr"></span>
+              </td>
+            </tr>
+            <tr>
+              <th align="left">内容</th>
+              <td align="left">
+                <span id="noteStr"></span>
+              </td>
+            </tr>
+            <tr>
+              <th align="left">参加者</th>
+              <td align="left">
+                <div id="joinEmpNameItems">
+                  <span id="joinEmpName"></span><br/>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th align="left">優先順位</th>
+              <td align="left">
+                <span id="priorityStr"></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <br/>
+
+        <!-- ボタン -->
+        <input type="image" id="doEdit" src="../img/btnedit.png" style="width:40px;height:21px;" alt="編集" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img onclick="checkDelete()" src="../img/btndis.png" style="width:40px;height:21px;" alt="削除" ></img>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="image" id="doCancel" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+        <br/>
+        <br/>
+        
+        <!-- 隠し項目 -->
+        <input type="button" id="doDelete" style="display:none;" />
+      </form>
+    </CENTER>
+  </body>
+</html>

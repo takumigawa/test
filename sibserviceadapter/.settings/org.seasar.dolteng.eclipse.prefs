@@ -1,0 +1,7 @@
+DaoType=S2Dao
+DefaultResourcePath=/sibserviceadapter/src/main/resources
+DefaultRootPackage=serviceadapter
+DefaultSrcPath=/sibserviceadapter/src/main/java
+ServletPath=/sibserviceadapter
+WebContentsRoot=src/main/webapp/
+eclipse.preferences.version=1

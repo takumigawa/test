@@ -1,0 +1,45 @@
+.Text{
+	border: 1px #aaaaaa;
+	border-style:solid;
+	width: 200px;
+}
+
+/* 
+	ボタン02
+	新規作成、戻る、中断して一覧へ、
+	削除して一覧へ、キャンセル、
+	登録して一覧へなど
+*/
+.Button02{
+	width:100px;
+	height:25px;
+}
+
+
+#searchform1 {
+background:url(../img/search1.png) 
+left top no-repeat; 
+display: block;
+width: 240px; 
+height: 32px;
+}   
+
+#searchform4 {   
+    width: 200px;   
+    background: url(../img/search1.gif) left top no-repeat;    
+    display: block;   
+    height: 24px;   
+    position: relative;   
+}   
+#keywords4  {   
+    width: 156px;   
+    position: absolute;   
+    top: 3px;   
+    left: 12px;   
+    border: 1px solid #FFF;   
+}   
+#searchBtn4 {   
+    position: absolute;   
+    top: 3px;   
+    left: 174px;   
+} 

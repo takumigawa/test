@@ -1,0 +1,89 @@
+#cal{font-family:georgia;}
+#cal h1{font-family:helvetica;}
+
+#cal ul{
+width:770px;
+list-style:none;
+font-family:georgia;
+font-size:15px;
+margin:0px;
+padding:0px;
+}
+
+#cal ul li{
+width:95px;
+float:left;
+height:42px;
+background:#eee;
+margin:2px;
+padding:3px;
+font-family:georgia;
+}
+
+#cal ul li.day{
+font-variant:small-caps;
+font-size:13px;
+background:#fff;
+height:25px;
+font-family:helvetica,arial;text-align:center;
+}
+
+#cal ul li span{
+font-size:11px;
+dispay:block;
+color:#666;
+}
+
+#cal.day{display:block;}
+
+TABLE.calendertable{
+  border-collapse:collapse;
+  border-spacing:0;
+  background-color:#dddddd;
+  empty-cells:show;
+  border-bottom-width : 1px;
+  border-bottom-style : double;
+  border-bottom-color : maroon;
+}
+.calendertable TH{
+  color:#330000;
+  background-color:#FCEAB0;
+  background-position:left top;
+  padding:0.3em 1em;
+  text-align : left;
+  vertical-align : top;
+  border-right-width : 3px;
+  border-bottom-width : 3px;
+  border-right-style : solid;
+  border-bottom-style : solid;
+  border-right-color : #ffffff;
+  border-bottom-color : #ffffff;
+  width : 150px;
+}
+.calendertable TD{
+  border-right : 3px solid white;
+  border-bottom : 3px solid white;
+  padding:0.3em 1em;
+  background-color:#FFF8E5;
+  border-top-width : 3px;
+  border-left-width : 3px;
+  border-top-style : solid;
+  border-left-style : solid;
+  border-top-color : white;
+  border-left-color : white;
+  width : 400px;
+}
+
+.calendertable TR{
+  border-right : 3px solid white;
+  border-bottom : 3px solid white;
+  padding:0.3em 1em;
+  background-color:#FFF8E5;
+  border-top-width : 3px;
+  border-left-width : 3px;
+  border-top-style : solid;
+  border-left-style : solid;
+  border-top-color : white;
+  border-left-color : white;
+  width : 400px;
+}

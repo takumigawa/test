@@ -1,0 +1,8 @@
+#Wed Dec 17 13:28:48 JST 2014
+DaoType=S2Dao
+DefaultResourcePath=/nen/src/main/resources
+DefaultRootPackage=nen
+DefaultSrcPath=/nen/src/main/java
+ServletPath=/nen
+WebContentsRoot=src/main/webapp/
+eclipse.preferences.version=1

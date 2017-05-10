@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<MAILL>
+	<hostname>sib.co.jp</hostname>
+	<port>587</port>
+	<sendid>sysbot@sib.co.jp</sendid>
+	<sendpas>sysbot1962</sendpas>
+	<errhostname>sib.co.jp</errhostname>
+	<errport>587</errport>
+	<errsendid>sysbot@sib.co.jp</errsendid>
+	<errsendpas>sysbot1962</errsendpas>
+	<errfromaddress>sysbot@sib.co.jp</errfromaddress>
+	<errtoaddress>taku_fujimoto@sib.co.jp</errtoaddress>
+	<errstitel>SIB自動メール送信システム</errstitel>
+</MAILL>

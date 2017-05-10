@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-日間スケジュール</title>
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+      
+    </script>
+    <script type="text/javascript" src="../js/calendar.js" charset="Windows31-J"></script>
+    <script type="text/javascript" src="scheduleChk.js"></script>
+    <script type="text/javascript">
+      cal = new JKL.Calendar("caldiv1","sucheduleForm","scheduleDate");
+      window.document.onclick=click;
+      function click(e){
+        var o=e?e.target:event.srcElement;
+        if(o.id.indexOf("caldiv1",0) == -1) {
+          if(o.id != "scheduleDate") {
+            cal.initDate();
+            cal.hide();
+          }
+        }
+      }
+      
+      function chengeDateChk(){
+        if(!chkDate(document.getElementById("scheduleDate"), "年月日")){
+          document.getElementById("doSearch").click();
+        }
+      }
+    </script>
+    
+    
+    <link rel="stylesheet" href="../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../css/commoninput.css" />
+    <link rel="stylesheet" href="schedulelist.css" />
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+    <CENTER>
+      <FORM id="sucheduleForm">
+        <CENTER>
+          <DIV id="contents">
+            <DIV id="c_pad">
+              <h4 width="500px">ログイン社員情報</h4>
+              <TABLE border="0" width="800px" >
+                <TBODY>
+                  <TR>
+                    <TD>
+                      <IMG src="../img/p3.png" alt="logo" ></IMG>
+                    </TD>
+                    <TD>  
+                      <table class="companyinflist" style="width=500px;" align="left">
+                        <TR>
+                          <Th>社員コード</Th>
+                          <TD align="left"><span id="employee_id">0002</span></TD>
+                        </TR>
+                        <TR>
+                          <Th>社員名</Th>
+                          <TD align="left"><span id="employee_name">藤本　卓</span></TD>
+                        </TR>
+                        <TR>
+                          <Th>メールアドレス</Th>
+                          <TD align="left"><span id="employee_mail">taku_fujimoto@sib.co.jp</span></TD>
+                        </TR>
+                      </table>
+                    
+                    </TD>
+                  </TR>
+                </TBODY>
+              </TABLE>
+            
+            </DIV>
+          </DIV>
+        </CENTER>
+        
+        <DIV id="contents">
+          <DIV id="c_pad">
+            <h4>日間スケジュール</h4>
+          </DIV>
+        </DIV>
+        
+        <table class="companyinflist" style="width:750px;">
+          <tr>
+            <th style="width:60px; vertical-align:middle;">検索条件</th>
+            <th style="width:40px; vertical-align:middle;">社員名</th>
+            <td style="width:80px; vertical-align:middle;">
+              <span id="employeeNameStr">新井</span>
+            </td>
+            <th style="width:40px; vertical-align:middle;">年月日</th>
+            <td style="width:110px;">
+              <input type="text" id="scheduleDate" style="width:100px;" maxlength="10" onClick="cal.hide(); cal.write();"/>
+              <span id="caldiv1"></span>
+            </td>
+            <td style="width:65px;">
+              <img onclick="chengeDateChk()" src="../img/btnsrc.png" style="width:60px;height:21px;" alt="検索" ></img>
+            </td>
+            <td style="width:85px;">
+              <input type="image" id="doSchAdd" src="../img/btnnew.png" style="width:80px;height:21px;" alt="新規追加" />
+            </td>
+            <td style="width:55px;">
+              <input type="image" id="doCancel" src="../img/btnret.png" style="width:50px;height:21px;" alt="戻る" />
+            </td>
+          </tr>
+        </table>
+        <br />
+        
+        <div id="cal">
+          <h1><span id="daySchTitel"></span></h1>
+          <br/>
+          <b>終日スケジュール</b>
+          <table class="companyinflist" style="width:750px;">              
+            <thead>
+              <tr style="height:30px;">
+                <th align="left" style="width:250px; vertical-align:middle;">タイトル</th>
+                <th align="left" style="width:440px; vertical-align:middle;">内容</th>
+                <th style="width:55px;"></th>
+              </tr>
+            </thead>
+
+            <input type="hidden" id="allDayScheduleItemsSave" />
+            <tbody id="allDayScheduleItems">
+              <tr style="height:30px;">
+                <td align="left" style="width:250px;">
+                  <span id="allDaySchTitelStr"></span>
+                </td>
+                <td align="left" style="width:440px;">
+                  <span id="allDaySchTitelStrTitle"></span>
+                </td>
+                <td style="width:50px;">
+                  <input type="image" id="doView" src="../img/btndeta.png" style="width:30px;height:21px;" alt="詳細" />
+                </td>
+              </tr>
+            </tbody> 
+          </table>
+          <br/>
+          
+          <b>時間スケジュール</b>
+          <!-- スクロールバー(開始) -->
+          <div style="background-color:white; width:750px; overflow-x:auto; border:inset;">
+            <table class="companyinflist2" style="margin:3px 0px 0px 6px;">
+              <tr style="height:30px;">
+                <td class="Td06" style="width:0;"></td>
+                <th style="width:50px; vertical-align:middle; text-align: center;">時間</th>
+                <th style="vertical-align:middle; width:100%;">スケジュール</th>
+              </tr>
+            </table>
+            
+            <div style="height:470px; overflow-x:hidden; overflow-y:scroll;">
+              <table class="companyinflist" border="0">
+                <tbody id="allTimeSchItems"> 
+                  <tr>
+                    <td class="Td06" style="height:15px;width:0;"></td>
+                    <span id="isTime">
+                      <td class="Td04" id="time" style="width:60px; vertical-align:middle; text-align: center;">
+                        <b>
+                          <span id="timeStr">0</span>
+                        </b>
+                      </td>
+                    </span>
+                    <span id="timeScheduleItems">
+                      <span id="isTimeSch">
+                        <a id="goScheduleView" href="../schedulelist/scheduleView.html?scheduleID=aaa" >
+                          <td id="timeSch" style="dummy" title="dummy">
+                            <span id="timeSchTitelStr">dummy</span>
+                            <input type="hidden" id="scheduleID" />
+                          </td>
+                        </a>
+                      </span>
+                    </span>
+                  </tr> 
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <br/>
+        </div>
+        
+        <!-- 隠し項目 -->
+        <input type="button" id="doSearch" style="display:none;" />
+      </FORM>
+    </CENTER>
+  </body>
+</html>

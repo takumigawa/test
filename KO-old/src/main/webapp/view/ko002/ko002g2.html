@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-社員一覧　『詳細』</title>
+
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+
+    <link rel="stylesheet" href="../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../css/commoninput.css" />
+
+    <!--[if lt IE 7]>
+    <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <form id="form">
+      <center>
+        <div id="contents">
+          <div id="c_pad">
+          <h4>ログイン社員情報</h4>
+            <table border="0" width="700px" >
+              <tbody>
+                <tr>
+                  <td>
+                    <img src="../img/p3.png" alt="logo" ></img>
+                  </td>
+                  <td>
+                    <table class="companyinflist" style="width=500px;" align="left">
+                      <tr>
+                        <th>社員コード</th>
+                          <td align="left"><span id="employee_id"></span></td>
+                      </tr>
+                      <tr>
+                        <th>社員名</th>
+                          <td align="left"><span id="employee_name"></span></td>
+                      </tr>
+                      <tr>
+                        <th>メールアドレス</th>
+                          <td align="left"><span id="employee_mail"></span></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </center>
+      <center>
+        <div id="contents">
+          <div id="c_pad">
+            <h4 style="width:740px;">管理者更新画面</h4>         
+          </div>
+        </div>
+      </center>
+      <center>
+        <div style="width:700px;padding:10px;">
+          <table class="kogutidetail" style="width=770px;">
+            <tr>
+              <th align="left">請求ID</th>
+                <td colspan="2" align="left">
+                  <span id="seikyuid"></span>
+                </td>
+            </tr>
+            <tr>
+              <th align="left">PJコード</th>
+                <td  colspan="2" align="left">
+                  <span id="pjcode"></span>
+                </td>
+            </tr>
+            <tr>
+              <th align="left">ステータス</th>
+                <td  colspan="2" align="left">
+                  <span id="state"></span>
+                </td>
+            </tr>
+            <tr>
+              <th align="left">勘定科目</th>
+                <td  colspan="2" align="left">
+                  <span id="kanjo"></span>
+                </td>
+            </tr>
+            <tr>
+              <th align="left">金額</th>
+                <td  colspan="2" align="left">
+                  <span id="kingaku"></span>
+                </td>
+            </tr>
+            <tr>
+              <th align="left">請求日/請求社員</th>
+                <td align="left">
+                  <span id="seikyudate"></span>
+                </td>
+                <td align="left">
+                  <span id="seikyuemp"></span>
+                </td>
+            </tr>
+            <tr>
+              <th align="left">取消日/取消社員</th>
+                <td align="left">
+                  <span id="torikesidate"></span>
+                </td>
+                <td align="left">
+                  <span id="torikesienp"></span>
+                </td>
+            </tr>
+            <tr>
+              <th align="left">許可日/許可社員</th>
+                <td align="left">
+                  <span id="kyokadate"></span>
+                </td>
+                <td align="left">
+                  <span id="kyokaemp"></span>
+                </td>
+            </tr>
+            <tr>
+              <th align="left">不許可日/不許可社員</th>
+                <td align="left">
+                  <span id="fukyokadate"></span>
+                </td>
+                <td align="left">
+                  <span id="fukyokaemp"></span>
+                </td>
+            </tr>
+            <tr>
+              <th align="left">清算日/清算社員</th>
+                <td align="left">
+                  <span id="seisandate"></span>
+                </td>
+                <td align="left">
+                  <span id="seisanemp"></span>
+                </td>
+            </tr>
+            <tr>
+              <th align="left">備考</th>
+                <td  colspan="2" align="left">
+                  <span id="biko"></span>
+                </td>
+            </tr>
+          </table>
+        </div>
+        
+        <table>
+          <tr>
+            <td>
+            	<select id="strlist" name="form:strlist" style="width: 100px;">
+				</select>
+            </td>
+		    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td><input type="image" id="doUpdate" src="../img/btnretch.png" style="width:40px;height:21px;" alt="更新" /></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td><input type="image" id="doFinishReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" /></td>
+          </tr>
+        </table>
+        </center>
+
+<!-- 小口請求情報編集ヘッダ -->
+      <center>
+        <div id="contents">
+          <div id="c_pad">
+            <h4>やり取りメッセージ</h4>
+          </div>
+        </div>
+        <div style="width:700px;padding:10px;">
+        <table class="companyinflist" style="width=500px;" align="center">
+          <tbody>
+            <tr>
+              <td style="width:150px;" >メッセージ追加</td>
+              <td style="width:450px;">
+                <span id="message_id">
+                  <input type="text" name="message" size="70" />
+                </span>
+              </td>
+              <td style="width:100px;">
+                <input type="image" id="doinsnew" src="../img/btnnew.png" style="width:60px;height:21px;" alt="新規登録" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+
+        <div style="width:770px;padding:10px;">
+          <table class="companyinflist" style="width=500px;" align="center">
+            <tr>
+              <th style="width:125px;">送信日</th>
+              <th style="width:125px;">送信者</th>
+              <th style="width:450px;">メッセージ</th>
+              <th style="width:70px;"></th>
+            </tr>
+            <tbody id="messageitems">
+            <tr>
+              <td style="width:125px;"><span id="Transday_id"></span></td>
+              <td style="width:125px;"><span id="Sender_id"></span></td>
+              <td style="width:450px;"><span id="message_id"></span></td>
+              <td style="width:70px;">
+                <input type="image" id="doinfo" src="../img/btndeta.png" style="width:40px;height:21px;" alt="詳細" />
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </center>
+    </form>
+  </body>
+</html>

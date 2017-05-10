@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:te="http://www.seasar.org/teeda/extension" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>申請書詳細</title>
+<link rel="stylesheet" href="/STE/view/css/te02_02.css" />
+<script LANGUAGE="JavaScript" src="/STE/view/js/te0202.js"></script>
+</head>
+<body>
+<form id="Form">
+	<div class="HdrDiv01Add">
+		<h4>申請書詳細　<span id="empyear"></span>年<span id="empmonth"></span>月</h4>
+	</div>
+	<div id="isViewChk" class="HdrDiv01Add">
+		<input type="submit" class="Button InputButton2" onclick="deleteClick();" value="申請削除" />
+		<input type="submit" class="Button InputButton2" id="doReturn" value="戻る" />
+		<input type="button" class="Button InputButton2" onclick="rowDelClick();" value="行削除" />
+		<input type="submit" class="Button InputButton2" id="doAdd" value="行追加" />
+		<input type="button" class="Button InputButton2" onclick="copyClick();" value="複製" />
+		<input type="button" class="Button InputButton2" onclick="updateClick();" value="更新" />
+	</div>
+	<div id="isNotViewChk" class="HdrDiv01Add">
+		<input type="submit" class="Button InputButton2" onclick="cancelClick();" value="取り消す" />
+		<input type="submit" class="Button InputButton2" id="doReturn" value="戻る" />
+	</div>
+	<br/>
+	<div class="HdrDiv01">
+		<table class="HdrTbl01">
+			<tbody>
+				<tr class="te0202tr">
+					<th class="th01" >選択</th>
+					<th class="th02" >日</th>
+					<th class="th03" >摘要</th>
+					<th class="th04" >区間</th>
+					<th class="th05" >金額</th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="FtrDiv01">
+		<input type="hidden" id="expItemsSave" />
+		<table class="FtrTbl01">
+			<div id="expItems">
+				<tr>
+					<td class="td01" te:layout="pageDirection" >
+						<input type="checkbox" name="option" value="dummy" />
+					</td>
+					<td class="td02"><input type="text" id="applicationdate" class="text02" /></td>
+					<td class="td03"><input type="text" id="summary" class="text03" /></td>
+					<td class="td04"><span id="sectionfrom" ></span></td>
+					<td class="td05"><input type="text" id="money" class="text05" value="dummy" /></td>
+				</tr>
+			</div>
+		</table>
+	</div>
+
+	<!-- 隠し項目 -->
+	<input type="button" id="doReflash"   style="display:none;" />
+	<input type="button" id="doCopy"      style="display:none;" />
+	<input type="button" id="doRowDelete" style="display:none;" />
+	<input type="button" id="doDelete"    style="display:none;" />
+	<input type="button" id="doCancel"    style="display:none;" />
+	<input type="submit" id="doUpdate"    style="display:none;" />
+	<input type="hidden" id="retChk"      value="dummy" />
+	<input type="hidden" id="errMes" />	
+	
+</form>
+</body></html>

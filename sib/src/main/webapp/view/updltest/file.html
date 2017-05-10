@@ -1,0 +1,28 @@
+<html xmlns:x="http://myfaces.apache.org/tomahawk">
+<head>
+<title>Fileupload</title>
+</head>
+<body>
+<form id="fileForm" enctype="multipart/form-data">
+<table>
+<thead>
+<tr>
+<td>
+<span id="allMessage"></span>
+</td>
+</tr>
+</thead>
+<tbody id="fileListItems">
+<tr>
+<td>
+<input type="file" id="uploadedFile" />
+<input type="hidden" id="fileListIndex" />
+</td>
+</tr>
+</tbody>
+</table>
+<input type="hidden" id="fileListItemsSave" />
+<input type="button" id="doUpload" value="UPLOAD" />
+</form>
+</body>
+</html>

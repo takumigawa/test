@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+  　　　<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-グループマスタ　『グループ設定』</title>
+    
+  <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+  <script type="text/javascript">
+    var ie = "iestyle.css";
+    var netscape = "niestyle.css";
+    var cssfile;
+    var browser = navigator.appName;
+    
+    if(browser == "Microsoft Internet Explorer")
+      {cssfile = ie;}
+    else
+      {cssfile = netscape;}
+      
+    document.write('<link href="../../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+  </script>
+  
+  <link rel="stylesheet" href="../../css/cal_style_1.css" />
+  <link rel="stylesheet" href="../../css/cal_style_2.css" />
+  <link rel="stylesheet" href="../../css/commoninput.css" />
+  
+  <!--[if lt IE 7]>
+    <script defer type="text/javascript" src="../../js/pngfix.js"></script>
+  <![endif]-->
+  
+      <script type="text/javascript">
+
+      function combchange(){
+
+        document.getElementById("doCombChange").click();
+        
+      } 
+      </script>
+      
+  </head>
+  <body>
+    <center>
+      <form id="sucheduleForm">
+        <div id="contents">
+          <div id="c_pad">
+            <h4>ログイン社員情報</h4>
+            <table border="0" width="800px" >
+              <tbody>
+                <tr>
+                  <td>
+                    <img src="../../img/p3.png" alt="logo" ></img>
+                  </td>
+                  <td>
+                    
+                    <table class="companyinflist" style="width=500px;" align="left">
+                      <tr>
+                        <th>社員コード</th>
+                        <td align="left"><span id="employee_id">dummy</span></td>
+                      </tr>
+                      <tr>
+                        <th>社員名</th>
+                        <td align="left"><span id="employee_name">dummy</span></td>
+                      </tr>
+                      <tr>
+                        <th>メールアドレス</th>
+                        <td align="left"><span id="employee_mail">dummy</span></td>
+                      </tr>
+                    </table>
+                   
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+          
+        <div id="contents">
+          <div id="c_pad">
+            <h2>グループ一覧</h2>
+          </div>
+        </div>
+
+       <div style="width:770px;padding:10px;">
+       <table class="companyinflist" >
+         <tr>
+           <th style="width:80px;">
+                                 検索条件
+           </th>
+           <td>
+                                  グループ指定
+             <input type="hidden" id="groupItemsSave" />
+			 <select id="group" style="width:200px;" onchange="combchange()">
+			   <option value="0">dummy</option>
+			 </select>
+           </td>
+         </tr>
+       
+       </table>
+       </div>
+       
+        <!-- スクロールバー(開始) -->
+        <div style="width:770px;height:500px;overflow-y:scroll;padding:10px;">
+          <div id="cal">
+            <table>
+              <tr>
+                <td style="width:300px;">
+            <input type="hidden" id="atEmpItemsSave" />
+            <select id="atEmp" multiple="multiple" style="width:280px;height:400px;">
+              <option value="0">dummy</option>
+            </select>
+                </td>
+                <td style="width:100px;">
+                  <input type="image" id="doAttach" src="../../img/btnattach.png" style="width:40px;height:21px;" alt="追加" />
+                  <br/>
+                  <br/>
+                  <input type="image" id="doRetach" src="../../img/btnretach.png" style="width:40px;height:21px;" alt="削除" />
+                </td>
+                <td style="width:300px;">
+            <input type="hidden" id="reEmpItemsSave" />
+            <select id="reEmp" multiple="multiple" style="width:280px;height:400px;">
+              <option value="0">dummy</option>
+            </select>
+                </td>
+              </tr>
+            </table>
+            
+            <input type="image" id="doUpdate" src="../../img/btnupd.png" style="width:40px;height:21px;" alt="更新" />
+         
+          </div>
+        </div>
+
+        <!-- 隠し項目 -->
+        <input type="button" id="doCombChange" style="display:none;"/>
+      
+        <input type="hidden" id="retErrMess" />
+      
+		<script language="JavaScript">
+		  <!--
+		    if(document.getElementById("retErrMess").value != ""){
+		      alert(document.getElementById("retErrMess").value);
+			}
+          // -->
+        </script>
+      
+      </form>
+    </center>
+  </body>
+</html>

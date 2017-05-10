@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+  　　　<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-グループマスタ　『グループ設定』</title>
+    
+  <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+  <script type="text/javascript">
+    var ie = "iestyle.css";
+    var netscape = "niestyle.css";
+    var cssfile;
+    var browser = navigator.appName;
+    
+    if(browser == "Microsoft Internet Explorer")
+      {cssfile = ie;}
+    else
+      {cssfile = netscape;}
+      
+    document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+  </script>
+  
+  <link rel="stylesheet" href="../css/cal_style_1.css" />
+  <link rel="stylesheet" href="../css/cal_style_2.css" />
+  <link rel="stylesheet" href="../css/commoninput.css" />
+  
+  <!--[if lt IE 7]>
+    <script defer type="text/javascript" src="../js/pngfix.js"></script>
+  <![endif]-->
+  
+      <script type="text/javascript">
+
+      function combchange(){
+
+        document.getElementById("doCombChange").click();
+        
+      } 
+      </script>
+      
+  </head>
+  <body>
+    <center>
+      <form id="sucheduleForm">
+        <div id="contents">
+          <div id="c_pad">
+            <h4>ログイン社員情報</h4>
+            <table border="0" width="800px" >
+              <tbody>
+                <tr>
+                  <td>
+                    <img src="../img/p3.png" alt="logo" ></img>
+                  </td>
+                  <td>
+                    
+                    <table class="companyinflist" style="width=500px;" align="left">
+                      <tr>
+                        <th>社員コード</th>
+                        <td align="left"><span id="employee_id">1</span></td>
+                      </tr>
+                      <tr>
+                        <th>社員名</th>
+                        <td align="left"><span id="employee_name">テスト太郎</span></td>
+                      </tr>
+                      <tr>
+                        <th>メールアドレス</th>
+                        <td align="left"><span id="employee_mail">test@sib.co.jp</span></td>
+                      </tr>
+                    </table>
+                   
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+          
+        <div id="contents">
+          <div id="c_pad">
+            <h2>プロジェクト登録</h2>
+          </div>
+        </div>
+       
+       
+       <center>
+         <div id="contents">
+           <div id="c_pad">
+       
+                <div id="cal">
+          
+                  <table class="companyinflist" style="width=770px;">
+                    <tr>
+                      <th align="left">プロジェクトコード</th>
+                      <td align="left">
+                      	<div id="isUpdate">
+                      		<span id="projectCodeStr"></span>
+                      	</div>
+                      	<div id="isNotUpdate">
+                      		<input class="Text" id="projectCodeStr" style="width:150px;" maxlength="20" title="プロジェクトコード" />
+                      		<br/><span id="projectCodeStrMessage">pj130002</span>
+                      	</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">プロジェクトコード名</th>
+                      <td align="left">
+                        <input class="Text" id="projectNameStr" style="width:400px;" maxlength="20" title="プロジェクト名" />
+                        <br/><span id="projectNameStrMessage"></span>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th align="left">PJリーダー</th>
+                      <td align="left">
+                      	<div id="isUpdate-2">
+                         <input type="hidden" id="projectLeaderItemsSave" />
+                         <select id="projectLeader" style="width:100px;">
+                         
+                         </select>
+                      	</div>
+                      </td>
+                    </tr>
+
+
+                    <tr>
+                      <th align="left">有効/無効</th>
+                      <td align="left">
+                      	<div id="isUpdate-2">
+                         <input type="hidden" id="kaihaiItemsSave" />
+                         <select id="kaihai" style="width:100px;">
+
+                         </select>
+                      	</div>
+                      </td>
+                    </tr>
+                                       
+                    		 
+                  </table>
+                </div>
+                <br/>
+                <h1><span id="updateMes"></span></h1>
+            </div>
+         </div>
+       </center>
+
+        <div id="contents">
+          <div id="c_pad">
+            <h2>プロジェクト参画者一覧</h2>
+          </div>
+        </div>
+       
+        <!-- スクロールバー(開始) -->
+        <div style="width:770px;height:250px;overflow-y:scroll;padding:10px;">
+          <div id="cal">
+            <table>
+              <tr>
+              
+                <td style="width:300px;">
+            <input type="hidden" id="atEmpItemsSave" />
+            <select id="atEmp" multiple="multiple" style="width:280px;height:200px;">
+
+            </select>
+                </td>
+                
+                <td style="width:100px;">
+                  <input type="image" id="doAttach" src="../img/btnattach.png" style="width:40px;height:21px;" alt="追加" />
+                  <br/>
+                  <br/>
+                  <input type="image" id="doRetach" src="../img/btnretach.png" style="width:40px;height:21px;" alt="削除" />
+                </td>
+             
+                <td style="width:300px;">
+            <input type="hidden" id="reEmpItemsSave" />
+            <select id="reEmp" multiple="multiple" style="width:280px;height:200px;">
+            
+              </select>
+                </td>
+              </tr>
+            </table> 
+            
+            <input type="image" id="doUpdate" src="../img/btnupd.png" style="width:40px;height:21px;" alt="更新" />
+            
+         　　　　　　　<input type="image" id="doReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+            
+                    
+          </div>
+        </div>
+		
+
+
+        <!-- 隠し項目 -->
+        <input type="button" id="doCombChange" style="display:none;"/>
+      
+        <input type="hidden" id="retErrMess" />
+      
+		<script language="JavaScript">
+		  <!--
+		    if(document.getElementById("retErrMess").value != ""){
+		      alert(document.getElementById("retErrMess").value);
+			}
+          // -->
+        </script>
+      
+      </form>
+    </center>
+  </body>
+</html>

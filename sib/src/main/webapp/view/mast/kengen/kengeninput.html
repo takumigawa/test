@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:te="http://www.seasar.org/teeda/extension" xml:lang="ja" lang="ja">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!-- タイトル -->
+    <title>SIBグループウェア-権限マスタ　『詳細』</title>
+
+    <link rel="stylesheet" href="../../css/commoninput.css" />
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+
+    <script type="text/javascript">
+
+      function chengeInsChk(){
+        
+        if( confirm("入力された内容で登録します。\nよろしいですか？")){
+   
+			document.getElementById("doFinishUpdate").click();
+			
+        }else{
+          return false;
+          
+        }
+        
+      } 
+      
+      function chengeUpdChk(){
+        
+        if( confirm("入力された内容で更新します。\nよろしいですか？")){
+   
+			document.getElementById("doFinishUpdate").click();
+ 
+        }else{
+          return false;
+          
+        }
+        
+      }  
+    </script>
+    
+    <link rel="stylesheet" href="../../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../../css/commoninput.css" />
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../../js/pngfix.js"></script>
+    <![endif]-->
+    
+</head>
+<body>
+<form id="Form">
+<div><span id="messages"></span></div>
+
+	<!-- ログイン情報はBasesClassのメソッド[setLoginInfo]メソッドを呼び出して行う。 -->
+	<center>
+		<div id="contents">
+			<div id="c_pad">
+				<h4>ログイン社員情報</h4>
+				<table border="0" width="800px" >
+					<tbody>
+						<tr>
+							<td>
+								<img src="../../img/p3.png" alt="logo" ></img>
+							</td>
+							<td>
+								<table class="companyinflist" style="width=500px;" align="left">
+									<tr>
+										<th>社員コード</th>
+										<td align="left"><span id="employee_id"></span></td>
+									</tr>
+									<tr>
+										<th>社員名</th>
+										<td align="left"><span id="employee_name"></span></td>
+									</tr>
+									<tr>
+										<th>メールアドレス</th>
+										<td align="left"><span id="employee_mail"></span></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</center>
+	
+       <center>
+         <div id="contents">
+           <div id="c_pad">
+             <h4 style="width:740px;">権限情報編集</h4>         
+
+       
+                <div id="cal">
+          
+                  <table class="companyinflist" style="width=770px;">
+                    <tr>
+                      <th align="left">権限値</th>
+                      <td align="left">
+　　　　　　　　　　　　　　　　　　　　　<span id="kengenCodeStr"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">権限名</th>
+                      <td align="left">
+                        <input class="Text" id="kengenNameStr" style="width:400px;" maxlength="20" title="権限名" />
+                        <br/><span id="kengenNameStrMessage"></span>
+                      </td>
+                    </tr>                   		 
+                    <tr>
+                	<div id="isUpdate-1">
+                      <th align="left">権限名(物理名)</th>
+                      <td align="left">
+                        <span id="kengenButuNameStr"></span>
+                      </td>
+                  	</div>
+                	<div id="isNotUpdate-1">
+                      <th align="left">権限名(物理名)</th>
+                      <td align="left">
+                        <input class="Text" id="kengenButuNameStr" style="width:400px;" maxlength="20" title="権限名(物理名)" />
+                        <br/><span id="kengenButuNameStrMessage"></span>
+                      </td>
+                  	</div>
+                    </tr>  
+                  </table>
+                </div>
+                <br/>
+                <h1><span id="updateMes"></span></h1>
+            </div>
+         </div>
+       </center>
+
+        <div id="isUpdate-2">
+          <img onclick="chengeUpdChk()" src="../../img/btnupd.png" style="width:40px;height:21px;" alt="更新" ></img>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="image" id="doFinishReturn" src="../../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+        </div>
+        <div id="isNotUpdate-2">
+          <img onclick="chengeInsChk()" src="../../img/btnadd.png" style="width:40px;height:21px;" alt="追加" ></img>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="image" id="doFinishReturn" src="../../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+        </div>
+        
+	  <!-- 隠し項目 -->
+	  <input type="button" id="doFinishUpdate" style="display:none;"/>
+
+</form>
+</body></html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:te="http://www.seasar.org/teeda/extension" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>勘定科目マスタ  『登録/更新』</title>
+
+
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+<!--
+    <script type="text/javascript">
+
+      function chengeInsChk(){
+
+        if( confirm("入力された内容で登録します。\nよろしいですか？")){
+
+			document.getElementById("doFinishUpdate").click();
+
+        }else{
+          return false;
+
+        }
+
+      }
+
+      function chengeUpdChk(){
+
+        if( confirm("入力された内容で更新します。\nよろしいですか？")){
+
+			document.getElementById("doFinishUpdate").click();
+
+        }else{
+          return false;
+
+        }
+
+      }
+    </script>
+ -->
+<!--
+    <link rel="stylesheet" href="../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../css/commoninput.css" />
+ -->
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+<!--     <form id="employeeInputForm">  -->
+      <center>
+        <div id="contents">
+          <div id="c_pad">
+            <h4 style="width:740px;">勘定科目マスタ編集</h4>
+            <div id="cal">
+              <table class="companyinflist" style="width=770px;">
+
+                <tr>
+                   <th align="left">勘定科目ID</th>
+                  <td align="left"><span id="kanjoID">ID</span></td>
+                </tr>
+
+                <tr>
+                  <th align="left">勘定科目名</th>
+                  <td align="left">
+                    <input class="Text" id="kanjoName" style="width:250px;" maxlength="30" title="勘定科目名" />
+                    <br/><span id="kanjoNameMessage"></span>
+                  </td>
+                  
+                </tr>
+                <tr>
+                  <th align="left">表示順</th>
+                  <td align="left">
+                    <input class="Text" id="kanjoOrderSEQ" style="width:100px;" maxlength="3" title="表示順" />
+                    <br/><span id="kanjoOrderSEQMessage"></span>
+                  </td>
+                  
+                </tr>
+               <tr>
+                      <th align="left">有効/無効</th>
+                      <td align="left">
+                      	<div id="isUpdate-1">
+                         <input type="hidden" id="kaihaiItemsSave" />
+                         <select id="kaihaiselect" style="width:100px;">
+                           <option value="0"></option>
+                         </select>
+                      	</div>
+                      	<div id="isNotUpdate-1">
+                      	<input type="hidden" id="kaihaiItemsSave" />
+                         <select id="kaihaiselect" style="width:100px;">
+                           <option value="0"></option>
+                         </select>
+                      	</div>
+
+                      </td>
+                    </tr>
+              </table>
+             
+            </div>
+            <br/>
+            <h1><span id="UpdateMes"></span></h1>
+          </div>
+        </div>
+      </center>
+      <br/>
+      <br/>
+       <br/>
+      <br/>
+      <center>
+      	<div id="isUpdate-2">
+        <img onclick="chengeUpdChk()" src="../img/btnupd.png" style="width:40px;height:21px;" alt="更新" ></img>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="image" id="doFinishReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+        </div>
+        <div id="isNotUpdate-2">
+        <img onclick="chengeInsChk()" src="../img/btnadd.png" style="width:40px;height:21px;" alt="追加" ></img>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="image" id="doFinishReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" /> 
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        </center>
+
+	
+
+      <!-- 隠し項目 -->
+      <input type="button" id="doFinishUpdate" style="display:none;"/>
+      <input type="hidden" id="dOru"/>
+<!--     </form>  -->
+  </body>
+</html>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-週間スケジュール</title>
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <titel>SIBスケジュール管理システム-スケジュール</titel>
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+      
+    </script>
+    
+ 	<!-- STYLE -->
+    <link rel="stylesheet" href="../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../css/commoninput.css" />
+    <link rel="stylesheet" href="schedulelist.css" />
+  
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+  </head>
+  <body onload="Tscroller('weekScheduleItems',510)">
+    <CENTER>
+      <FORM id="sucheduleForm">
+        <CENTER>
+          <DIV id="contents">
+            <DIV id="c_pad">
+              <h4 width="500px">ログイン社員情報</h4>
+              <TABLE border="0" width="800px" >
+                <TBODY>
+                  <TR>
+                    <TD>
+                      <IMG src="../img/p3.png" alt="logo"></IMG>
+                    </TD>
+                    <TD>
+                      <table class="companyinflist" style="width=500px;" align="left">
+                        <TR>
+                          <Th>社員コード</Th>
+                          <TD align="left"><span id="employee_id">0002</span></TD>
+                        </TR>
+                        <TR>
+                          <Th>社員名</Th>
+                          <TD align="left"><span id="employee_name">藤本　卓</span></TD>
+                        </TR>
+                        <TR>
+                          <Th>メールアドレス</Th>
+                          <TD align="left"><span id="employee_mail">taku_fujimoto@sib.co.jp</span></TD>
+                        </TR>
+                      </table>
+                    
+                    </TD>
+                  </TR>
+                </TBODY>
+              </TABLE>
+            
+            </DIV>
+          </DIV>
+        </CENTER>
+        
+        <div id="contents">
+          <div id="c_pad">
+            <h4>連絡事項</h4>
+          </div>
+        </div>
+        <table class="companyinflist" border="0" style="width:750px;">
+          <tbody>
+            <tr>
+              <td align="left" style="width:750px;">
+                <ul id="tipsItems" style="margin-left:10px;">
+                  <li>
+                    <b>
+                      <a id="goTopicsView" href="../topics/topicsview.html?tipsID=aaa&amp;changeFlg=bbb" >
+                        <span id="note" style="font-size:16px;">特になし</span>
+                        &nbsp;&nbsp;
+                        <span id="isFile">
+                          <img src="../img/file.png" alt="添付ファイル有" />
+                        </span>
+                        <input type="hidden" id="tipsID" />
+                      </a>
+                    </b>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div id="contents">
+          <div id="c_pad">
+            <h4>週間スケジュール</h4>
+          </div>
+        </div>
+        
+        <table class="companyinflist" style="width:750px;">
+          <tr>
+            <th style="width:100px; vertical-align:middle;">検索条件</th>
+            <th style="width:100px; vertical-align:middle;">グループ</th>
+            <td width="180px">
+              <input type="hidden" id="groupIDStrItemsSave" />
+              <select id="groupIDStr"  style="width:150px;">
+                <option value="0">dummy</option>
+              </select>
+            </td>
+            <td style="width:200px;">
+              <input type="image" id="doSearch" src="../img/btnsrc.png" style="width:60px;height:21px;" alt="絞り込み" />
+              &nbsp;&nbsp;
+              <input type="image" id="doSearchCancel" src="../img/btnsrccan.png" style="width:60px;height:21px;" alt="絞り込み解除" />
+            </td>
+            <td style="width:100px;">
+              <input type="image" id="doScheduleAdd" src="../img/btnnew.png" style="width:80px;height:21px;" alt="新規追加" />
+            </td>
+          </tr>
+        </table>
+        <br />
+        
+        <table style="width:750px;">
+          <tr>
+            <td style="width:500px;">
+                <span id="weekScheduleTitel" style="font-size:large;"></span>
+            </td>
+            <td style="width:250px;">
+              <input type="image" id="doLastWeek" src="../img/btnbackweek.png" style="width:60px;height:21px;" alt="前週へ" />
+              &nbsp;&nbsp;
+              <input type="image" id="doThisWeek" src="../img/btnnowweek.png" style="width:60px;height:21px;" alt="今週" />
+              &nbsp;&nbsp;
+              <input type="image" id="doNextWeek" src="../img/btnnextweek.png" style="width:60px;height:21px;" alt="次週へ" />
+            </td>
+          </tr>
+        </table>
+        <br/>
+        
+        <!-- スケジュール一覧 -->
+        <div style="background-color:white; width:750px; overflow-x:scroll; border:inset;">
+          <table class="companyinflist2" border="0" width="1600px">
+            <tr style="height:50px;" id="dateCalendarItems">
+              <th style="width:200px;" valign="middle">
+                <center>
+                  <span id="dateStr" class="dummy" style="font-size:16px;"></span><br/>
+                  <span id="weekDay" class="dummy" style="font-size:16px;"></span>
+                </center>
+              </th>
+            </tr>
+          </table>
+        
+          <div style="width:1600px; height:460px; overflow-x:hidden; overflow-y:scroll;">
+            <table class="companyinflist" border="0" id="weekScheduleItems" width="1600px">
+              <tbody id="allEmpSchItems">
+                <tr>
+                  <a id="goMonthlySchedule" href="../schedulelist/monthlySchedule.html?employeeID=aaa" >
+                    <td class="Td04" style="width:192px;">
+                      <center>
+                        <b>
+                        <font class="FontSize">
+                          <span id="employeeName" style="width:182px;"></span>
+                          <br/><br/>
+                          <div id="matterTitelItems" style="width:182px;">
+                            <span id="matterTitel"></span><br/>
+                          </div>
+                          <input type="hidden" id="employeeID" />
+                        </font>
+                        </b>
+                      </center>
+                    </td>
+                  </a>
+                
+                  <span id="dayScheduleItems">
+                    <a id="goDayschedule" href="../schedulelist/daySchedule.html?employeeID=aaa&amp;scheduleDate=bbb&amp;changeFlg=ccc">
+                      <td id="body" class="dummy" valign="top">
+                        <center>
+                          <font class="FontSize">
+                            <div id="allDayScheduleItems" style="width:190px;">
+                              <span id="allDaySchTitelStr" title="dummy"></span><br/>
+                            </div>
+                            <br/><br/>
+                            <div id="timeScheduleItems" style="width:190px;">
+                              <span id="timeSch" title="dummy">
+                                <span id="startTimeStr"></span>&nbsp;～&nbsp;
+                                <span id="endTimeStr"></span>
+                                &nbsp;&nbsp;
+                              </span>
+                              <span id="timeSchTitelStr" title="dummy"></span><br/>
+                            </div>
+                            <input type="hidden" id="scheduleDate" />
+                          </font>
+                        </center>
+                      </td>
+                    </a>
+                  </span>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- 隠し項目 -->
+        <input type="hidden" id="changeFlg" />
+      </FORM>
+    </CENTER>
+  </body>
+</html>

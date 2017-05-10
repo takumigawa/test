@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sibpaydevice" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="36a8c4ad-e2c3-4565-ba85-0d89af0020e6">
+	<property name="ireport.zoom" value="1.6105100000000216"/>
+	<property name="ireport.x" value="533"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="paraYear" class="java.lang.String">
+		<defaultValueExpression><![CDATA[2010]]></defaultValueExpression>
+	</parameter>
+	<parameter name="paraMonth" class="java.lang.String">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="paraEmpid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select t1.empid as o01
+      ,t1.empname as o02
+      ,t1.workinghours as o03
+      ,t1.attendancedays as o04
+      ,t1.absentdays as o05
+      ,t1.useannualdays as o06
+      ,t1.nonuseannualdays as o07
+      ,t1.dependent as o08
+      ,t1.summervacation as o09
+      ,t2.endday as o10
+      ,t2.jobdays as o11
+      ,t3.base as o12
+      ,t3.syaho as o13
+      ,t3.teiki as o14
+      ,t3.tuukinn as o15
+      ,t3.nontax as o16
+      ,t3.kenho as o17
+      ,t3.kounenn as o18
+      ,t3.koyoho as o19
+      ,t3.syotax as o20
+      ,t3.citytax as o21
+      ,t2.year
+      ,t2.month
+      ,t3.base + t3.syaho + t3.teiki + t3.tuukinn as oA
+      ,(t3.base + t3.syaho + t3.teiki + t3.tuukinn) - t3.nontax as oC
+      ,t3.kenho + t3.kounenn + t3.koyoho as oD
+      ,((t3.base + t3.syaho + t3.teiki + t3.tuukinn) - t3.nontax) - (t3.kenho + t3.kounenn + t3.koyoho) as oE
+      ,t3.syotax + t3.citytax as oF
+      ,t3.kenho + t3.kounenn + t3.koyoho + t3.syotax + t3.citytax as oG
+      ,(t3.base + t3.syaho + t3.teiki + t3.tuukinn) - (t3.kenho + t3.kounenn + t3.koyoho + t3.syotax + t3.citytax) as oI
+  from t_emp t1
+      ,t_calender t2
+      ,t_payadvice t3
+ where t1.empid    = $P{paraEmpid}
+   and t1.empyear  = $P{paraYear}
+   and t1.empmonth = $P{paraMonth}
+   and t1.empyear = t2.year
+   and t1.empmonth = t2.month
+   and t1.empid = t3.empid
+   and t1.empyear = t3.empyear
+   and t1.empmonth = t3.empmonth]]>
+	</queryString>
+	<field name="o01" class="java.lang.Integer"/>
+	<field name="o02" class="java.lang.String"/>
+	<field name="o03" class="java.lang.Double"/>
+	<field name="o04" class="java.lang.Integer"/>
+	<field name="o05" class="java.lang.Integer"/>
+	<field name="o06" class="java.lang.Integer"/>
+	<field name="o07" class="java.lang.Integer"/>
+	<field name="o08" class="java.lang.Integer"/>
+	<field name="o09" class="java.lang.Integer"/>
+	<field name="o10" class="java.lang.Integer"/>
+	<field name="o11" class="java.lang.Integer"/>
+	<field name="o12" class="java.lang.Integer"/>
+	<field name="o13" class="java.lang.Integer"/>
+	<field name="o14" class="java.lang.Integer"/>
+	<field name="o15" class="java.lang.Integer"/>
+	<field name="o16" class="java.lang.Integer"/>
+	<field name="o17" class="java.lang.Integer"/>
+	<field name="o18" class="java.lang.Integer"/>
+	<field name="o19" class="java.lang.Integer"/>
+	<field name="o20" class="java.lang.Integer"/>
+	<field name="o21" class="java.lang.Integer"/>
+	<field name="year" class="java.lang.Integer"/>
+	<field name="month" class="java.lang.Integer"/>
+	<field name="oA" class="java.lang.Long"/>
+	<field name="oC" class="java.lang.Long"/>
+	<field name="oD" class="java.lang.Long"/>
+	<field name="oE" class="java.lang.Long"/>
+	<field name="oF" class="java.lang.Long"/>
+	<field name="oG" class="java.lang.Long"/>
+	<field name="oI" class="java.lang.Long"/>
+	<variable name="variable1" class="java.lang.String">
+		<variableExpression><![CDATA[$F{o12} + $F{o13} + $F{o14} + $F{o15}]]></variableExpression>
+	</variable>
+	<variable name="variable2" class="java.lang.String">
+		<variableExpression><![CDATA[($F{o12}+$F{o13}+$F{o14}+$F{o15})-$F{o16}]]></variableExpression>
+	</variable>
+	<variable name="variable3" class="java.lang.String">
+		<variableExpression><![CDATA[$F{o17}+$F{o18}+$F{o19}]]></variableExpression>
+	</variable>
+	<variable name="variable4" class="java.lang.String">
+		<variableExpression><![CDATA[(($F{o12}+$F{o13}+$F{o14})-$F{o16})-($F{o17}+$F{o18}+$F{o19})]]></variableExpression>
+	</variable>
+	<variable name="variable5" class="java.lang.String">
+		<variableExpression><![CDATA[$F{o20}+$F{o21}]]></variableExpression>
+	</variable>
+	<variable name="variable6" class="java.lang.String">
+		<variableExpression><![CDATA[$F{o17}+$F{o18}+$F{o19}+$F{o20}+$F{o21}]]></variableExpression>
+	</variable>
+	<variable name="variable7" class="java.lang.String">
+		<variableExpression><![CDATA[($F{o12}+$F{o13}+$F{o14}+$F{o15})-($F{o17}+$F{o18}+$F{o19}+$F{o20}+$F{o21})]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="431" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="e59bee32-de1f-4f57-a785-31abf98b4026" x="0" y="176" width="802" height="93" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="c1bcae69-2e18-42a6-ab83-8724e20c4eeb" x="332" y="28" width="469" height="84" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="42ff3748-8885-4d49-be0d-9d32978d20ad" mode="Transparent" x="0" y="29" width="802" height="290"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="4" y="6" width="98" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[給与明細]]></text>
+			</staticText>
+			<textField pattern="000">
+				<reportElement uuid="e6150224-b098-4f10-853a-4b148796f3ac" x="8" y="31" width="55" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o01}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="600" y="57" width="63" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[支給額総額
+（A）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="14" y="149" width="55" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[労働時間]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="190" y="201" width="1" height="118"/>
+			</line>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="510" y="200" width="1" height="118"/>
+			</line>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="733" y="57" width="67" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[（C）]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="159" y="28" width="1" height="147"/>
+			</line>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="127" y="203" width="64" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[雇用保険]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="717" y="177" width="85" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[差引支給額]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="63" y="200" width="1" height="118"/>
+			</line>
+			<textField>
+				<reportElement uuid="f9f820f9-4f5c-4db5-963c-1dc3c7cb67dc" x="106" y="66" width="22" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o11}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="231" y="28" width="1" height="147"/>
+			</line>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="319" y="203" width="64" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[所得税]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="85ece6c8-44a6-4e03-ac23-64b1e42c5780" x="576" y="290" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{oG}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="574" y="240" width="64" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[D+F=G]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="533" y="57" width="63" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[通勤手当]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="255" y="177" width="64" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[課税対象額]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="730" y="29" width="1" height="146"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="ebdbdf51-b140-4335-b339-db66ff2c56ac" x="196" y="149" width="33" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o08}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="466" y="56" width="63" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[定期代
+過不足清算]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e53c93a4-841c-4ac4-b9ec-75475afbc7cf" x="6" y="124" width="30" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{year}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="510" y="203" width="64" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[控除小計
+（F）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="69" y="124" width="10" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[月]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8ebb2129-b520-4af3-9031-0f6008cb0602" x="0" y="145" width="331" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="144" y="6" width="10" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[年]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8ebb2129-b520-4af3-9031-0f6008cb0602" x="0" y="55" width="159" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="665" y="29" width="1" height="146"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="e3a3743c-7b52-4719-a269-da9a136b1512" x="735" y="149" width="63" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{oC}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="39" y="124" width="10" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[年]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="235" y="118" width="58" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[特別休暇等]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="8c304708-7321-4549-afe7-0487046f2c03" x="127" y="290" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o19}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="164" y="31" width="58" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[出勤日数]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="6056c739-a5ff-46da-ade0-fe76cc9a8796" x="334" y="149" width="62" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o12}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="203" y="57" width="22" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[日]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="665" y="29" width="66" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[非課税額]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="87" y="106" width="25" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[1日]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="717" y="203" width="85" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[（I）]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="319" y="176" width="1" height="142"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="e4e0b42d-1a2e-4c8a-9d98-4c8b2cd7bf26" x="258" y="290" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{oE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f871a19e-5fe8-4c67-aac7-16210674a665" x="102" y="6" width="40" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{paraYear}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="167" y="89" width="58" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[欠勤日数]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="255" y="240" width="64" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[C-D=E]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="69" y="106" width="10" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="63" y="203" width="64" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[厚生年金]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="c875d858-507b-4d20-b931-66ed1fd6cfbc" x="385" y="290" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o21}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="235" y="57" width="70" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[使用日数：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="337" y="29" width="322" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[支給額]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8ebb2129-b520-4af3-9031-0f6008cb0602" x="232" y="112" width="570" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="ef796604-1969-4caf-873a-d8086af7afbd" x="305" y="149" width="24" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o09}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="333" y="57" width="64" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[基本給]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="446" y="201" width="1" height="118"/>
+			</line>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="aff0da38-6c5f-40c2-b6dd-6f0cfbf66b46" x="64" y="290" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o18}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="191" y="203" width="64" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[保険計
+（D）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="735" y="86" width="67" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[A-B=C]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="175" y="6" width="33" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[月度]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="255" y="203" width="64" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[（E）]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8ebb2129-b520-4af3-9031-0f6008cb0602" x="232" y="54" width="570" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="203" y="118" width="22" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[日]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8ebb2129-b520-4af3-9031-0f6008cb0602" x="331" y="84" width="471" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="134" y="31" width="22" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[殿]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="f23fc3c1-8693-4ca4-bf56-fe70461629fe" x="1" y="290" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o17}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="102" y="124" width="25" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[日]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8ebb2129-b520-4af3-9031-0f6008cb0602" x="-1" y="235" width="802" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="447" y="203" width="64" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[持株会]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="4364e10d-724e-4439-a3ee-193bbe07deb0" x="63" y="31" width="70" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o02}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="717" y="240" width="84" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[A-G+☆+H=I]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="399" y="55" width="1" height="121"/>
+			</line>
+			<textField>
+				<reportElement uuid="986f9cc9-d8ef-4aa1-bc60-9534420ed9ca" x="176" y="57" width="27" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o04}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7700b465-c727-4e9c-83f7-9834393eb948" x="176" y="118" width="27" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o05}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="574" y="176" width="1" height="142"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="383" y="201" width="1" height="118"/>
+			</line>
+			<textField>
+				<reportElement uuid="1176e05f-44a2-4d43-9c7c-306a24578cde" x="49" y="106" width="18" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{month}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="255" y="175" width="1" height="143"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="9846810f-e54c-4193-a345-a9387f85b7d0" x="87" y="124" width="15" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o10}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="638" y="177" width="79" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="fc4c3333-9fb5-4eac-aa6c-92cd2e76f7de" x="468" y="149" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o14}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="235" y="31" width="58" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[年次休暇]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="164" y="149" width="32" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[扶養：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="383" y="203" width="64" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[市町村民税]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="610c3c91-2059-4188-938a-c57b79b3af45" x="321" y="290" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o20}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="c3fabeb8-6fb5-4c5b-8fab-a9d6ad2e923c" x="75" y="149" width="49" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o03}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="8ebb2129-b520-4af3-9031-0f6008cb0602" x="-1" y="268" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="638" y="175" width="1" height="142"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="331" y="28" width="1" height="147"/>
+			</line>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="574" y="203" width="64" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[（G）]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="546969d7-2f08-494f-8145-b6c50d9059ce" x="305" y="57" width="24" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o06}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="59e1885a-3fea-4ffb-bf3d-6392bff0d37b" x="534" y="149" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o15}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="235" y="149" width="70" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[慶弔・夏休：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="638" y="203" width="79" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[（H）]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="597" y="54" width="1" height="121"/>
+			</line>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="23dc86b4-1573-49f9-9f3e-d5569986cfc1" x="403" y="149" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o13}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="ffb739fe-c9d4-4db6-8884-64b6c25fa6cb" x="512" y="290" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{oF}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="8ebb2129-b520-4af3-9031-0f6008cb0602" x="0" y="200" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="667" y="57" width="63" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[（B）]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="465" y="54" width="1" height="121"/>
+			</line>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="319" y="177" width="255" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[控除額]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="39" y="106" width="10" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[年]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="235" y="81" width="70" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[残日数：]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="69572f85-4fd6-4332-a79a-33b1ba8a3f0a" x="156" y="6" width="17" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{paraMonth}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="6c38ccdc-c875-4163-b824-c16b204b199a" x="720" y="290" width="81" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{oI}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="127" y="200" width="1" height="118"/>
+			</line>
+			<textField>
+				<reportElement uuid="e53c93a4-841c-4ac4-b9ec-75475afbc7cf" x="6" y="106" width="30" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{year}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="731" y="29" width="68" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[課税分支給額]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="f8c72238-967e-4a96-96fb-d4a010b26188" x="305" y="81" width="24" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o07}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="14" y="66" width="92" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[労働期間（営業日数）]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8ebb2129-b520-4af3-9031-0f6008cb0602" x="0" y="175" width="802" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="131" y="149" width="25" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[H]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="0ef4075a-9dce-4ca5-80e8-9ef2bf43b53c" x="193" y="290" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{oD}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="0" y="177" width="255" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[社会保険料控除額]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="1176e05f-44a2-4d43-9c7c-306a24578cde" x="49" y="124" width="18" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{month}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="305" y="1" width="207" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[株式会社SIB]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="0" y="203" width="64" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[健康保険]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="530" y="54" width="1" height="121"/>
+			</line>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="402" y="57" width="62" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[社保手当]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="a089a50d-b63b-4459-914f-5e98cd6be927" x="717" y="176" width="1" height="142"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="574" y="177" width="64" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[控除額総計]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="124" y="106" width="25" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[～]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="078b134d-73d7-4613-87a0-5673c94237df" x="132" y="65" width="22" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<text><![CDATA[日]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="795f06b9-7247-4de2-8aa1-a0075c8b8914" x="601" y="149" width="62" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{oA}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="56d7c4e7-cdae-42ae-85c3-be5eb9f60653" x="668" y="149" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{o16}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

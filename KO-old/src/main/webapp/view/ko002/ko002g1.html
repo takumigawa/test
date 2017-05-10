@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:te="http://www.seasar.org/teeda/extension" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- タイトル -->
+    <title>SIBグループウェア-小口管理-申請一覧画面</title>
+
+    <link rel="stylesheet" href="../css/commoninput.css" />
+
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+    	      		    
+    <script language="JavaScript" type="text/javascript">
+	<!--
+	function AllChecked(){
+	  var check =  document.Form.chkAll.checked;	
+	  for (var i=0; i<kogutiItems.rows.length; i++){
+	 	document.Form.elements['_id55:Form:kogutiItems:'+ i +':update'].checked  = check;
+	  }
+	}
+	//-->
+	</script>
+
+</head>
+
+<body>
+<form id="Form">
+<div><span id="messages"></span></div>
+
+	<!-- ログイン情報はBasesClassのメソッド[setLoginInfo]メソッドを呼び出して行う。 -->
+	<center>
+		<div id="contents">
+			<div id="c_pad">
+				<h4>ログイン社員情報</h4>
+				<table border="0" width="700px" >
+					<tbody>
+						<tr>
+							<td>
+								<img src="../img/p3.png" alt="logo" ></img>
+							</td>
+							<td>
+								<table class="companyinflist" style="width=500px;" align="left">
+									<tr>
+										<th>社員コード</th>
+										<td align="left"><span id="employee_id"></span></td>
+									</tr>
+									<tr>
+										<th>社員名</th>
+										<td align="left"><span id="employee_name"></span></td>
+									</tr>
+									<tr>
+										<th>メールアドレス</th>
+										<td align="left"><span id="employee_mail"></span></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</center>
+    <center>
+       <div id="contents">
+         <div id="c_pad">
+           <h2>管理者一覧</h2>
+         </div>
+       </div>
+
+       <div style="width:770px;padding:10px;">
+       <table class="companyinflist" style="width=500px;" align="left">
+         <tr>
+           <th style="width: 180px;">
+                                 検索条件
+           </th>
+           <td>請求日 <br></br>
+				<!-- 検索プルダウン年表示 -->
+				<input type="hidden" id="yearcombo_Save" />
+				<select id="yearlist" name="form:yearlist" style="width: 80px;">
+				</select>
+				年
+				<!-- 検索プルダウン月表示 -->
+				<input type="hidden" id="monthcombo_Save" />
+				<select id="monthlist" name="form:monthlist" style="width: 40px;">
+				</select>
+				月
+			</td>
+           <td style="width:120px;">
+           プロジェクトコード
+             <br/>
+             <input type="hidden" id="kogutistr" />
+			 <select id="strcombo" style="width:100px;">
+			 </select>
+           </td>
+            <!-- 検索プルダウンステータス表示 -->
+						<td style="width: 120px;">ステータス <br></br> <input type="hidden" id="kogutistr" />
+							<select id="strlist" name="form:strlist" style="width: 100px;">
+						</select>
+						</td>
+            <td style="width:100px;">
+            申請者
+             <br/>
+             <input type="hidden" id="kogutistr" />
+			 <select id="strcom" style="width:100px;">
+			 </select>
+           </td>
+           <td  style="width:100px;">
+             <input type="image" id="doSrech" src="../img/btnsrc.png" style="width:60px;height:21px;" alt="絞り込み" />
+             <br/>
+             <input type="image" id="doSrechCancel" src="../img/btnsrccan.png" style="width:60px;height:21px;" alt="絞り込み解除" />
+           </td>
+           
+         </tr>
+        </table>
+        </div>
+        <div style="width:770px;padding:10px;">
+			<table class="kogutilist" style="width=500px;">
+				<tbody>
+					<tr>
+					    <th style="width : 10px !important;
+					    		   text-align : center !important;
+					    		   vertical-align : middle!important;">
+					    		   <input type="checkbox" name="chkAll" value="dummy" onClick="AllChecked();"/></th>
+						<th>請求日</th>
+						<th>プロジェクトコード</th>
+						<th>ステータス</th>
+						<th>申請者</th>
+						<th>勘定科目</th>
+						<th>金額</th>
+						<th>更新日</th>
+						<th>備考</th>
+						<th style="width:40px;"></th>
+		      		</tr>
+	      		</tbody>
+
+	      		<tbody id="kogutiItems">
+					<tr>
+					    <td style="width : 10px !important;
+					    		   text-align : center !important;
+					    		   vertical-align : middle!important;"><input type="checkbox" id="update" value="dummy" /></td>
+						<td><span id="seikyudate"></span></td>
+						<td><span id="pjcode"></span></td>
+						<td><span id="state"></span></td>
+						<td><span id="seikyuemp"></span></td>
+						<td><span id="kanjoid"></span></td>
+						<td><span id="kingaku"></span></td>
+						<td><span id="upddate"></span></td>
+						<td><span id="biko"></span></td>
+						<td style="width:40px;">
+							<input type="image" id="doDetails" src="../img/btndeta.png" style="width:40px;height:21px;" alt="詳細" />
+						</td>
+					</tr>
+	             </tbody>
+			</table>
+			<table>
+              <tr>
+                <td>
+			      <select id="sttlist" name="form:sttlist" style="width: 100px;">
+				  </select>
+			    </td>
+			    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			    <td>
+                  <input type="image" id="doUpdate" src="../img/btnupd.png" style="width:40px;height:21px;" alt="更新" />
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input type="image" id="doFinishReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+                </td>
+              </tr>
+            </table>
+		</div>
+	</center>
+
+</form>
+</body>
+</html>

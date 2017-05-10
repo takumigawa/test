@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/commoninput.css" />
+      
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+  
+    <center>
+      <form id="loginForm">
+        <center>
+          <div id="contents">
+            <div id="c_pad">
+              <h4>SIBスケジュール管理システム&nbsp;&nbsp;</h4>
+              <br/>
+              <h1>ログイン画面よりログインしてください。</h1>
+            </div>
+            <br/>
+          </div>
+          <input type="image" id="doLogin" src="../img/btnlogin.png" style="width:60px;height:21px;" alt="ログイン" />
+    
+        </center>
+      </form>
+    </center>
+  </body>
+</html>

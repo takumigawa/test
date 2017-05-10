@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:te="http://www.seasar.org/teeda/extension" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!-- タイトル -->
+    <title>SIBグループウェア-経理用申請可否対象-詳細画面</title>
+
+    <link rel="stylesheet" href="../css/commoninput.css" />
+    
+    <!-- ブラウザを自動判定し、CSSファイルを切り替える -->
+    <script type="text/javascript">
+      var ie = "iestyle.css";
+      var netscape = "niestyle.css";
+      var cssfile;
+      var browser = navigator.appName;
+      
+      if(browser == "Microsoft Internet Explorer")
+        {cssfile = ie;}
+      else
+        {cssfile = netscape;}
+        
+      document.write('<link href="../css/'+ cssfile +'" type="text/css" rel="stylesheet" />');
+    </script>
+
+    <script type="text/javascript">
+      
+      function chengeUpdChk(){
+        
+        if( confirm("入力された内容で更新します。\nよろしいですか？")){
+   
+			document.getElementById("doFinishUpdate").click();
+ 
+        }else{
+          return false;
+          
+        }
+        
+      }  
+      
+       function addMessChk(){
+        
+       	if( confirm("入力されたメッセージを更新します。\nよろしいですか？")){
+   
+			document.getElementById("doMesFinishUpdate").click();
+ 
+        }else{
+          return false;
+          
+        }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="../css/cal_style_1.css" />
+    <link rel="stylesheet" href="../css/cal_style_2.css" />
+    <link rel="stylesheet" href="../css/commoninput.css" />
+    
+    <!--[if lt IE 7]>
+      <script defer type="text/javascript" src="../js/pngfix.js"></script>
+    <![endif]-->
+    
+</head>
+<body>
+<form id="Form">
+<div><span id="messages"></span></div>
+
+       <center>
+         <div id="contents">
+           <div id="c_pad">
+             <h4 style="width:740px;">SIBグループウェア-経理用申請可否対象-詳細画面</h4>         
+      
+                <div id="cal">
+          
+                  <table class="companyinflist" style="width=770px;">
+                    <tr>
+                      <th align="left">プロジェクトコード</th>
+                      <td align="left">
+							<span id="pjcode"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">プロジェクト名</th>
+                      <td align="left">
+							<span id="pjname"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">請求日</th>
+                      <td align="left">
+							<span id="seikyudate"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">申請日</th>
+                      <td align="left">
+							<span id="sinseidate"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left">勘定科目</th>
+                      <td align="left">
+							<span id="kanjo"></span>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th align="left">許可/不許可</th>
+                      <td align="left">
+                         <input type="hidden" id="sutatusItemsSave" />
+                         <select id="sutatus" style="width:100px;">
+                           <option value="0">dummy</option>
+                         </select>
+                      </td>
+                    </tr>
+			 
+                    <tr>
+                      <th align="left">金額</th>
+                      <td align="left">
+							<span id="kin"></span>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <br/>
+                <h1><span id="updateMes"></span></h1>
+            </div>
+         </div>
+
+        <!-- スクロールバー(開始) -->
+        <div style="width:770px;height:300px;overflow-y:scroll;padding:10px;">
+          <div id="cal">
+            <table class="companyinflist" style="width=770px;">
+              <tbody>
+                <tr style="height:30px;">
+                  <th align="left" style="width:100px;">使用日</th>
+                  <th align="left" style="width:100px;">勘定科目</th>
+                  <th align="left" style="width:100px;">金額</th>
+                </tr>
+              </tbody>
+              <tbody id="keihiItems">
+                <tr>
+                  <td align="left" style="width:100px;"><span id="lsiyoudate"></span></td>
+                  <td align="left" style="width:100px;"><span id="lkanjoname"></span></td>
+                  <td align="left" style="width:100px;"><span id="lkin"></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+          <img onclick="chengeUpdChk()" src="../img/btnupd.png" style="width:40px;height:21px;" alt="更新" ></img>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="image" id="doFinishReturn" src="../img/btnret.png" style="width:40px;height:21px;" alt="戻る" />
+          <br/>
+          <br/>
+         <div id="cal">
+            <table class="companyinflist" style="width=600px;">
+              <tbody>
+                <tr style="height:30px;">
+                  <th align="left" style="width:100px;">発言日<br/>発言者</th>
+                  <th align="left" style="width:500px;">内容</th>
+                </tr>
+              </tbody>
+              <tbody id="yaritoriItems">
+                <tr>
+                  <td align="left" style="width:100px;"><span id="hatudate"></span><br/><span id="hatumono"></span></td>
+                  <td align="left" style="width:500px;"><span id="yarimessege"></span></td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr style="height:30px;">
+                  <th align="left" style="width:100px;">新規メッセージ</th>
+                  <th align="left" style="width:500px;">
+		              <input class="Text" id="yMessage" style="width:400px;" maxlength="300" title="メッセージ内容" />
+		              <img onclick="addMessChk()" src="../img/btnupd.png" style="width:40px;height:21px;" alt="更新" ></img>
+                      <br/><span id="yMessageMessage"></span>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+       </center>
+           <br/>
+
+          <br/>
+          <h1><span id="update2Mes"></span></h1>
+          <br/>
+          
+		  <!-- 隠し項目 -->
+		  <input type="button" id="doFinishUpdate" style="display:none;"/>	
+		  <input type="button" id="doMesFinishUpdate" style="display:none;"/>	
+
+</form>
+</body></html>

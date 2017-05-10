@@ -1,0 +1,7 @@
+DaoType=S2Dao
+DefaultResourcePath=/SSM/src/main/resources
+DefaultRootPackage=ssm
+DefaultSrcPath=/SSM/src/main/java
+ServletPath=/SSM
+WebContentsRoot=src/main/webapp/
+eclipse.preferences.version=1
